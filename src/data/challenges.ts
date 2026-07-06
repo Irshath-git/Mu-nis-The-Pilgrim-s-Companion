@@ -23,37 +23,64 @@ export const challenges: ChallengeCard[] = [
   {
     id: 'language',
     icon: 'languages',
-    title: { en: 'Language and literacy', ar: 'اللغة والقراءة' },
+    title: { en: 'Unfamiliar language', ar: 'لغة غير مألوفة' },
     body: {
-      en: 'Critical instructions may be missed when they are delivered in unfamiliar or complicated language.',
-      ar: 'قد تفوت التعليمات المهمة عندما تصل بلغةٍ غير مألوفة أو بصياغةٍ معقّدة.',
+      en: 'Instructions cannot be understood when delivered in a language or dialect the pilgrim does not speak.',
+      ar: 'لا يمكن فهم الإرشادات عندما تقدم بلغة أو لهجة لا يتحدث بها الحاج.',
     },
   },
   {
     id: 'accessibility',
     icon: 'accessibility',
-    title: { en: 'Accessibility', ar: 'إمكانية الوصول' },
+    title: { en: 'Complex interface', ar: 'واجهة معقدة' },
     body: {
-      en: 'Elderly and disabled pilgrims may struggle with small controls, visual complexity and multi-step interfaces.',
-      ar: 'قد يواجه كبار السن وذوو الإعاقة صعوبة مع الأزرار الصغيرة والواجهات المعقّدة متعددة الخطوات.',
+      en: 'Small text, crowded maps, and multi-step menus create high cognitive load and confusion.',
+      ar: 'النصوص الصغيرة والخرائط المزدحمة والقوائم متعددة الخطوات تسبب عبئاً معرفياً كبيراً وارتباكاً.',
     },
   },
   {
     id: 'connectivity',
     icon: 'wifi-off',
-    title: { en: 'Connectivity', ar: 'الاتصال' },
+    title: { en: 'Loss of connectivity', ar: 'انقطاع الاتصال' },
     body: {
-      en: 'Weak or unavailable connectivity can interrupt navigation and important journey guidance.',
-      ar: 'قد يؤدي ضعف الاتصال أو انقطاعه إلى تعطّل الملاحة وانقطاع إرشادات الرحلة المهمة.',
+      en: 'Crowded areas block mobile networks, making live maps and translation apps completely unusable.',
+      ar: 'المناطق المزدحمة تقطع شبكات الهاتف، مما يجعل الخرائط الحية وتطبيقات الترجمة غير قابلة للاستخدام.',
     },
   },
   {
     id: 'coordination',
     icon: 'users',
-    title: { en: 'Assistance coordination', ar: 'تنسيق المساعدة' },
+    title: { en: 'Separated pilgrim', ar: 'انفصال عن المجموعة' },
     body: {
-      en: 'Families and group leaders may not immediately know when a pilgrim is lost, unwell or requesting support.',
-      ar: 'قد لا تعلم العائلات وقادة المجموعات فورًا عندما يتوه أحد الحجاج أو يتوعّك أو يطلب المساعدة.',
+      en: 'Losing visual contact with the group guide leads to panic and dangerous unscheduled movement.',
+      ar: 'فقدان الاتصال البصري مع مرشد المجموعة يؤدي إلى الذعر والتحرك العشوائي غير المخطط له.',
     },
   },
 ]
+
+export const problemSimulator = {
+  title: { en: 'Pilgrim Stress Simulator', ar: 'محاكي توتر الحاج' },
+  subtitle: {
+    en: 'Toggle the real-world barriers a pilgrim faces to see how stress multiplies. Then, see how Mu’nis resolves them.',
+    ar: 'فعِّل الحواجز الحقيقية التي يواجهها ضيف الرحمن لترى كيف يتضاعف القلق، ثم شاهد كيف يحلها مُؤْنِس.',
+  },
+  stressLevel: { en: 'Stress Level', ar: 'مستوى التوتر' },
+  stressHigh: { en: 'Critical (Overwhelmed)', ar: 'حرج (ارتباك شديد)' },
+  stressLow: { en: 'Calm & Clear (Sakeenah)', ar: 'طمأنينة ووضوح (سكينة)' },
+  resolveBtn: { en: "Resolve with Mu'nis", ar: 'بسطها مع مُؤْنِس' },
+  resetBtn: { en: 'Reset Scenario', ar: 'إعادة تعيين السيناريو' },
+  errors: {
+    language: { en: '⚠️ Error: Code 403 Translate Fail', ar: '⚠️ خطأ: فشل الترجمة ٤٠٣' },
+    ui: { en: 'Menu 1.4.2 > Sub-items > System Logs', ar: 'القائمة ١.٤.٢ > القوائم الفرعية > السجلات' },
+    offline: { en: '❌ No Network. Sync failed.', ar: '❌ لا يوجد اتصال. فشل المزامنة.' },
+    lost: { en: '⚠️ Group leader disconnected', ar: '⚠️ فُقد الاتصال بقائد المجموعة' },
+  },
+  resolvedInstruction: {
+    en: 'Your group is 150m ahead. Walk straight. Huda is guiding you.',
+    ar: 'مجموعتك على بعد ١٥٠ مترًا أمامك. تابع السير مستقيمًا. هُدى تُرشدك.',
+  },
+  resolvedSubtext: {
+    en: 'Voice assistance active • Offline maps enabled',
+    ar: 'المساعد الصوتي نشط • الخرائط دون اتصال مفعّلة',
+  },
+} as const

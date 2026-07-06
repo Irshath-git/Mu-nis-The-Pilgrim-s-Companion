@@ -3,20 +3,15 @@ import { useLanguage } from './hooks/useLanguage'
 import { ui } from './data/translations'
 import { Header } from './components/navigation/Header'
 import { Hero } from './components/hero/Hero'
+import { About } from './components/about/About'
 import { Challenge } from './components/challenge/Challenge'
 import { SolutionFlow } from './components/solution/SolutionFlow'
-import { Journey } from './components/journey/Journey'
-import { Personalisation } from './components/personalisation/Personalisation'
 import { CapabilityMaturity } from './components/solution/CapabilityMaturity'
+import { ARMaps } from './components/ar/ARMaps'
+import { Journey } from './components/journey/Journey'
 import { AccessibilitySection } from './components/accessibility/AccessibilitySection'
-import { Technology } from './components/architecture/Technology'
-import { Differentiation } from './components/differentiation/Differentiation'
-import { Impact } from './components/impact/Impact'
-import { Roadmap } from './components/roadmap/Roadmap'
-import { BusinessModel } from './components/roadmap/BusinessModel'
-import { Privacy } from './components/privacy/Privacy'
-import { Team } from './components/team/Team'
-import { ContactForm } from './components/contact/ContactForm'
+import { PrototypeDemo } from './components/prototype/PrototypeDemo'
+import { ComingSoon } from './components/comingsoon/ComingSoon'
 import { FinalCta } from './components/footer/FinalCta'
 import { Footer } from './components/footer/Footer'
 
@@ -36,20 +31,15 @@ function Page() {
       <Header />
       <main id="main">
         <Hero />
+        <About />
         <Challenge />
         <SolutionFlow />
-        <Journey />
-        <Personalisation />
         <CapabilityMaturity />
+        <ARMaps />
+        <Journey />
         <AccessibilitySection />
-        <Technology />
-        <Differentiation />
-        <Impact />
-        <Roadmap />
-        <BusinessModel />
-        <Privacy />
-        <Team />
-        <ContactForm />
+        <PrototypeDemo />
+        <ComingSoon />
       </main>
       <FinalCta />
       <Footer />

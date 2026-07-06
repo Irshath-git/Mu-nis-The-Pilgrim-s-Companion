@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "MUNIS — The Pilgrim's Companion. Competition website prototype.",
+  "description": "Mu'nis — The Pilgrim's Companion. Competition website prototype.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

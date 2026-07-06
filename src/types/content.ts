@@ -7,5 +7,5 @@ export interface Bilingual {
   ar: string
 }
 
-/** Maturity of a MUNIS capability — honesty labels used across the site. */
+/** Maturity of a Mu'nis capability — honesty labels used across the site. */
 export type MaturityLevel = 'prototype' | 'pilot' | 'future'

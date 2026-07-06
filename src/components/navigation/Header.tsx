@@ -39,8 +39,24 @@ export function Header() {
     }
   }, [drawerOpen])
 
-  const navLinks = (onClick?: () => void) =>
-    navItems.map((item) => (
+  const desktopItems = useMemo(() => navItems.filter((item) => ['overview', 'about', 'problem', 'solution'].includes(item.id)), [])
+  const drawerItems = useMemo(() => navItems.filter((item) => ['how-it-works', 'ar-maps', 'accessibility', 'prototype'].includes(item.id)), [])
+
+  const desktopLinks = () =>
+    desktopItems.map((item) => (
+      <li key={item.id}>
+        <a
+          href={`#${item.id}`}
+          className="nav__link"
+          aria-current={activeSection === item.id ? 'true' : undefined}
+        >
+          {t(item.label)}
+        </a>
+      </li>
+    ))
+
+  const drawerLinks = (onClick?: () => void) =>
+    drawerItems.map((item) => (
       <li key={item.id}>
         <a
           href={`#${item.id}`}
@@ -56,19 +72,16 @@ export function Header() {
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="header__inner container">
-        <a href="#overview" className="header__brand" aria-label="MUNIS — مُؤْنِس, back to overview">
-          <MunisLockup />
+        <a href="#overview" className="header__brand" aria-label="Mu'nis — مُؤْنِس, back to overview">
+          <MunisLockup showSubtitle={true} />
         </a>
 
         <nav className="header__nav" aria-label={t(ui.mainNavigation)}>
-          <ul className="nav__list">{navLinks()}</ul>
+          <ul className="nav__list">{desktopLinks()}</ul>
         </nav>
 
         <div className="header__actions">
           <LanguageToggle />
-          <a href="#experience" className="btn btn--primary btn--sm header__cta">
-            {t(ui.ctaPrototype)}
-          </a>
           <button
             className="header__burger"
             aria-expanded={drawerOpen}
@@ -99,6 +112,7 @@ export function Header() {
           aria-modal="true"
           aria-label={t(ui.mainNavigation)}
         >
+          <div className="pattern-overlay" aria-hidden="true" />
           <div className="drawer__head">
             <MunisLockup markSize={28} />
             <button
@@ -110,17 +124,10 @@ export function Header() {
             </button>
           </div>
           <nav aria-label={t(ui.mainNavigation)}>
-            <ul className="drawer__list">{navLinks(() => setDrawerOpen(false))}</ul>
+            <ul className="drawer__list">{drawerLinks(() => setDrawerOpen(false))}</ul>
           </nav>
           <div className="drawer__foot">
             <LanguageToggle idSuffix="-drawer" />
-            <a
-              href="#experience"
-              className="btn btn--primary drawer__cta"
-              onClick={() => setDrawerOpen(false)}
-            >
-              {t(ui.ctaPrototype)}
-            </a>
           </div>
         </div>
       </div>

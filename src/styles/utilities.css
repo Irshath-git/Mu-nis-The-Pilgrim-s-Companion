@@ -14,7 +14,12 @@
 }
 
 .section--soft {
-  background: var(--surface-soft);
+  background: linear-gradient(
+    135deg,
+    var(--surface-soft) 0%,
+    color-mix(in srgb, var(--surface-soft) 85%, var(--gold-200)) 50%,
+    var(--surface-soft) 100%
+  );
 }
 
 .section--dark {

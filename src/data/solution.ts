@@ -1,13 +1,13 @@
 import type { Bilingual } from '../types/content'
 
 export const solutionSection = {
-  eyebrow: { en: 'The MUNIS Approach', ar: 'منهجية مُؤْنِس' },
+  eyebrow: { en: `The Mu'nis Approach`, ar: 'منهجية مُؤْنِس' },
   heading: {
     en: 'One trusted companion. Adapted to every pilgrim.',
     ar: 'رفيق واحد موثوق، يتكيّف مع كل ضيف من ضيوف الرحمن.',
   },
   closing: {
-    en: 'MUNIS does not simply display information. It helps the pilgrim understand what to do next.',
+    en: `Mu'nis does not simply display information. It helps the pilgrim understand what to do next.`,
     ar: 'مُؤْنِس لا يكتفي بعرض المعلومات، بل يساعد ضيف الرحمن على فهم ما ينبغي فعله تاليًا.',
   },
 } as const
@@ -42,10 +42,10 @@ export const solutionStages: SolutionStage[] = [
   {
     id: 'personal-context',
     step: 2,
-    title: { en: 'Personal context', ar: 'السياق الشخصي' },
+    title: { en: "Mu'nis understands pilgrim", ar: 'مُؤْنِس يفهم الحاج' },
     subtitle: {
-      en: 'What MUNIS understands about the pilgrim',
-      ar: 'ما يفهمه مُؤْنِس عن ضيف الرحمن',
+      en: 'Analyses context and settings',
+      ar: 'يحلل سياق الحاج وإعداداته',
     },
     items: [
       { en: 'Preferred language', ar: 'اللغة المفضلة' },
@@ -62,10 +62,10 @@ export const solutionStages: SolutionStage[] = [
   {
     id: 'actionable-guidance',
     step: 3,
-    title: { en: 'Actionable guidance', ar: 'إرشاد قابل للتنفيذ' },
+    title: { en: 'Huda delivers one clear next action', ar: 'هُدى تقدم خطوة قادمة واحدة واضحة' },
     subtitle: {
-      en: 'How the pilgrim receives it',
-      ar: 'كيف يتلقّاه ضيف الرحمن',
+      en: 'Spoken, adapted and calm instructions',
+      ar: 'إرشادات منطوقة وهادئة ومخصصة',
     },
     items: [
       { en: 'Spoken instruction', ar: 'تعليمات منطوقة' },

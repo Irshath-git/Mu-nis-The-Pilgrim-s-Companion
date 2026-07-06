@@ -9,10 +9,17 @@ interface PhoneFrameProps {
   className?: string
   /** Accessible description of what the phone demo shows. */
   label?: string
+  hudaState?: 'active' | 'listening' | 'understanding'
 }
 
 /** Realistic smartphone shell shared by the hero visual and the prototype. */
-export function PhoneFrame({ children, offline = false, className, label }: PhoneFrameProps) {
+export function PhoneFrame({
+  children,
+  offline = false,
+  className,
+  label,
+  hudaState = 'active',
+}: PhoneFrameProps) {
   return (
     <div
       className={`phone${className ? ` ${className}` : ''}`}
@@ -29,6 +36,20 @@ export function PhoneFrame({ children, offline = false, className, label }: Phon
             <BatteryFull size={13} />
           </span>
         </div>
+
+        {/* Huda Companion Status Overlay Bar */}
+        <div className="phone__huda-companion-bar" aria-hidden="true">
+          <div className="huda-companion-bar__left">
+            <span className={`huda-companion-pulse huda-companion-pulse--${hudaState}`} />
+            <span className="huda-companion-text">
+              {hudaState === 'listening' && 'هُدى: تستمع... / Huda: Listening...'}
+              {hudaState === 'understanding' && 'هُدى: تفهم... / Huda: Thinking...'}
+              {hudaState === 'active' && 'هُدى متصلة / Huda Companion'}
+            </span>
+          </div>
+          {offline && <span className="huda-companion-offline-badge">Synced</span>}
+        </div>
+
         <div className="phone__content">{children}</div>
       </div>
     </div>

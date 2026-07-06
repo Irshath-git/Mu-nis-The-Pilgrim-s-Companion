@@ -1,32 +1,416 @@
+/* ============================================================
+   Problem/Challenge Section: Pilgrim Stress Simulator styles
+   ============================================================ */
+
+#problem {
+  background-color: var(--cloud-mist);
+}
+
+.challenge__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
+  margin-block-start: 1rem;
+}
+
+.challenge__left {
+  display: flex;
+  flex-direction: column;
+}
+
 .challenge__list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.challenge__card {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
+}
+
+.challenge__card-item {
+  margin: 0;
+}
+
+.challenge__card-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: start;
+  padding: 1.25rem 1.5rem;
+  background: var(--pure-white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  transition:
+    transform var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease,
+    border-color var(--dur-fast) ease;
+}
+
+.challenge__card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--mist-blue);
+}
+
+.challenge__card-btn--active {
+  border-color: var(--night-indigo);
+  background: rgba(184, 206, 216, 0.12);
+}
+
+.challenge__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .challenge__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 48px;
-  block-size: 48px;
-  border-radius: 14px;
-  background: var(--emerald-tint);
-  color: var(--emerald-800);
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+  color: var(--soft-slate);
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.challenge__icon--active {
+  background: var(--night-indigo);
+  color: var(--moon-ivory);
+}
+
+.challenge__toggle {
+  display: inline-flex;
+  align-items: center;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background: #cbd5e1;
+  padding: 2px;
+  transition: background-color var(--dur-fast) ease;
+}
+
+.challenge__card-btn--active .challenge__toggle {
+  background: var(--night-indigo);
+}
+
+.challenge__toggle-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--pure-white);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.challenge__toggle-dot--active {
+  transform: translateX(16px);
+}
+
+[dir='rtl'] .challenge__toggle-dot--active {
+  transform: translateX(-16px);
 }
 
 .challenge__title {
-  font-size: var(--text-h3);
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: 700;
+  color: var(--midnight-navy);
 }
 
 .challenge__body {
+  font-size: var(--text-sm);
+  color: var(--soft-slate);
+  line-height: 1.6;
+}
+
+/* ---- Simulator styles ---- */
+.simulator {
+  background: var(--pure-white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lift);
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+}
+
+.simulator__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-block-end: 0.75rem;
+}
+
+.simulator__title {
+  font-size: var(--text-h4);
+  font-weight: 800;
+}
+
+.simulator__stress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+}
+
+.stress-label {
+  font-weight: 600;
   color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 46ch;
+}
+
+.stress-value {
+  font-weight: 700;
+}
+
+.stress-value--high {
+  color: var(--critical-text);
+}
+
+.stress-value--low {
+  color: var(--success-text);
+}
+
+.simulator__progress-bar {
+  height: 6px;
+  width: 100%;
+  background: var(--border-soft);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-block-end: 1rem;
+}
+
+.simulator__progress-fill {
+  height: 100%;
+  background: var(--critical);
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-med) var(--ease-out), background-color var(--dur-med) ease;
+}
+
+.simulator__progress-fill--resolved {
+  background: var(--success);
+}
+
+.simulator__subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-block-end: 1.5rem;
+}
+
+.simulator__screen-container {
+  background: #f8fafc;
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  margin-block-end: 1.5rem;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-phone {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color var(--dur-med) ease, border-color var(--dur-med) ease;
+}
+
+.sim-phone--stressed {
+  background: #f1f5f9;
+  border: 1px dashed var(--critical-text);
+}
+
+.sim-phone--clear {
+  background: var(--midnight-navy);
+  color: var(--moon-ivory);
+  border: 1px solid var(--night-indigo);
+}
+
+/* ---- Stressed simulated screen ---- */
+.sim-phone__stress-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stress-state__empty {
+  text-align: center;
+  color: var(--soft-slate);
+  font-size: var(--text-sm);
+}
+
+.stress-state__errors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.error-item {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+.error-item:nth-child(even) {
+  animation-delay: 0.15s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(-1px); }
+  100% { transform: translateX(1px); }
+}
+
+.error-item--language {
+  background: var(--critical-soft);
+  color: var(--critical-text);
+  border-color: var(--rose-clay);
+  font-family: monospace;
+}
+
+.error-item--ui {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+  font-size: 0.72rem;
+}
+
+.error-item--offline {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.error-item--lost {
+  background: var(--warning-soft);
+  color: var(--warning-text);
+  border-color: #fde047;
+}
+
+/* ---- Clean simulated screen ---- */
+.sim-phone__clear-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.65rem;
+}
+
+.clear-state__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(201, 141, 120, 0.15);
+  color: var(--desert-sand);
+  border: 1.5px solid var(--rose-clay);
+}
+
+.clear-state__compass {
+  animation: compass-sway 3s ease-in-out infinite alternate;
+}
+
+@keyframes compass-sway {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+.clear-state__instruction {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--moon-ivory);
+  padding-inline: 0.5rem;
+}
+
+.clear-state__voice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(246, 241, 232, 0.08);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.clear-state__voice-icon {
+  color: var(--desert-sand);
+  animation: voice-pulse 1.2s infinite ease-in-out alternate;
+}
+
+@keyframes voice-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+.clear-state__wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 14px;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 80%;
+  background-color: var(--desert-sand);
+  border-radius: 3px;
+  animation: wave-bounce 0.8s infinite ease-in-out alternate;
+}
+
+.wave-bar:nth-child(2) {
+  animation-delay: 0.2s;
+  height: 100%;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.4s;
+  height: 60%;
+}
+
+@keyframes wave-bounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1.1); }
+}
+
+.clear-state__sub {
+  font-size: 0.72rem;
+  color: var(--mist-blue);
+}
+
+.simulator__actions {
+  display: flex;
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ---- Responsive simulator ---- */
+@media (max-width: 900px) {
+  .challenge__container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .simulator {
+    position: static;
+    margin-block-start: 1.5rem;
+  }
 }

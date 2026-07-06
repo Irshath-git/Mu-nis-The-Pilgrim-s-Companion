@@ -16,7 +16,7 @@ import { useLanguage } from '../../hooks/useLanguage'
 import { useInView } from '../../hooks/useInView'
 
 /**
- * Hero visual: a live MUNIS guidance moment. The route draws itself once
+ * Hero visual: a live Mu'nis guidance moment. The route draws itself once
  * visible; "Guide me" starts a traveller dot; "Repeat" replays the drawing.
  */
 export function HeroPhone() {

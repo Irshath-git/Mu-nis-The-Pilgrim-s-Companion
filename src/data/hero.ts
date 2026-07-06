@@ -1,15 +1,15 @@
 export const hero = {
   badge: {
-    en: 'Hajj & Umrah Experience Technologies',
-    ar: 'تقنيات تجربة الحج والعمرة',
+    en: 'AI-powered guidance for every pilgrim',
+    ar: 'إرشاد مدعوم بالذكاء الاصطناعي لكل حاج',
   },
   headline: {
     en: 'Every pilgrim deserves a companion who understands.',
     ar: 'كل ضيفٍ من ضيوف الرحمن يستحق رفيقًا يفهمه.',
   },
   supporting: {
-    en: 'MUNIS is a voice-first, offline-ready AI companion that transforms complex journey information into clear, personalised and actionable guidance—regardless of language, literacy, age, disability or connectivity.',
-    ar: 'مُؤْنِس رفيق ذكي يعتمد الصوت أولًا ويعمل دون اتصال، يحوِّل معلومات الرحلة المعقدة إلى إرشادات واضحة وشخصية وقابلة للتنفيذ — مهما كانت اللغة أو مستوى القراءة أو العمر أو الإعاقة أو حالة الاتصال.',
+    en: "Mu'nis transforms trusted journey information into clear, personalised guidance—spoken by Huda, adapted to each pilgrim and available even when connectivity is limited.",
+    ar: 'يحوّل مُؤْنِس معلومات الرحلة الموثوقة إلى إرشاد واضح ومخصص — تنطقه هُدى، ويتكيف مع كل حاج، ويتوفر حتى عند ضعف الاتصال.',
   },
   capabilities: [
     { icon: 'mic', label: { en: 'Voice-first', ar: 'الصوت أولًا' } },
@@ -25,7 +25,7 @@ export const heroPhone = {
   offlineReady: { en: 'Offline essentials saved', ar: 'الأساسيات محفوظة دون اتصال' },
   stageLabel: { en: 'Current stage', ar: 'المرحلة الحالية' },
   stageValue: { en: 'Ritual journey · Mina', ar: 'رحلة المناسك · منى' },
-  listening: { en: 'MUNIS is listening…', ar: 'مُؤْنِس يستمع…' },
+  listening: { en: `Huda is listening...`, ar: 'هُدى تستمع...' },
   heatLabel: { en: 'Heat', ar: 'الحرارة' },
   heatValue: { en: 'High — rest advised', ar: 'مرتفعة — يُنصح بالراحة' },
   crowdLabel: { en: 'Crowd', ar: 'الازدحام' },
@@ -42,4 +42,9 @@ export const heroPhone = {
     en: 'Simplified map showing a calm accessible route toward the destination point',
     ar: 'خريطة مبسطة تعرض مسارًا ميسّرًا وهادئًا نحو نقطة الوجهة',
   },
+} as const
+
+export const heroStatus = {
+  hudaStatus: { en: 'Voice: Huda Active', ar: 'الصوت: هُدى نشطة' },
+  modelStatus: { en: 'Offline LLM: Synced', ar: 'الذكاء الاصطناعي المحلي: متزامن' },
 } as const

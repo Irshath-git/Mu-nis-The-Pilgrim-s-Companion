@@ -1,0 +1,94 @@
+/* ============================================================
+   About: Mu'nis mission and values
+   ============================================================ */
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.about__vision {
+  font-size: var(--text-lead);
+  line-height: 1.8;
+  color: var(--emerald-800);
+  font-weight: 600;
+  max-width: 62ch;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-card);
+  background: linear-gradient(135deg, rgba(0, 166, 126, 0.08) 0%, rgba(200, 169, 81, 0.06) 100%);
+  border-left: 4px solid var(--emerald-700);
+}
+
+.about__values {
+  margin: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.about__value-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  border-block-start: 4px solid var(--rose-clay);
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    border-color var(--dur-fast) ease;
+}
+
+.about__value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lift);
+  border-block-start-color: var(--desert-sand);
+}
+
+.about__value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--cloud-mist) 0%, var(--desert-sand) 100%);
+  color: var(--night-indigo);
+}
+
+.about__value-card h3 {
+  font-size: var(--text-h4);
+  color: var(--midnight-navy);
+}
+
+.about__value-card p {
+  color: var(--soft-slate);
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+
+.about__closing {
+  font-size: var(--text-body-lg);
+  line-height: 1.7;
+  color: var(--near-black);
+  max-width: 70ch;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: var(--radius-card);
+  background: linear-gradient(135deg, rgba(200, 169, 81, 0.08) 0%, rgba(0, 166, 126, 0.04) 100%);
+}
+
+@media (max-width: 900px) {
+  .about__values {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .about__values {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about__value-card {
+    text-align: left;
+    align-items: flex-start;
+  }
+}

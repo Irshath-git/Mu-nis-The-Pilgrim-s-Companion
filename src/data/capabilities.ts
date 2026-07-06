@@ -7,7 +7,7 @@ export const capabilitySection = {
     ar: 'إرشاد يستجيب قبل أن يتحول الالتباس إلى خطر.',
   },
   flowLabel: {
-    en: 'How MUNIS turns information into safe action',
+    en: `How Mu'nis turns information into safe action`,
     ar: 'كيف يحوّل مُؤْنِس المعلومة إلى تصرف آمن',
   },
   honesty: {
@@ -94,5 +94,81 @@ export const capabilityGroups: CapabilityGroup[] = [
       { en: 'Approved sensor or IoT feeds', ar: 'مصادر استشعار معتمدة' },
       { en: 'Authorised operator dashboards', ar: 'لوحات تحكم معتمدة للمشغّلين' },
     ],
+  },
+]
+
+export interface AdaptationMode {
+  id: string
+  name: Bilingual
+  signals: {
+    route: Bilingual
+    stage: Bilingual
+    profile: Bilingual
+    lang: Bilingual
+    conn: Bilingual
+  }
+  hudaResponse: Bilingual
+}
+
+export const adaptationModes: AdaptationMode[] = [
+  {
+    id: 'elderly',
+    name: { en: 'Elderly Mode', ar: 'وضع كبار السن' },
+    signals: {
+      route: { en: 'Route: Crowded', ar: 'المسار: مزدحم' },
+      stage: { en: 'Stage: Mina Walk', ar: 'المرحلة: مسار منى' },
+      profile: { en: 'Profile: Assist Active', ar: 'الملف: تذكير بالراحة' },
+      lang: { en: 'Language: English', ar: 'اللغة: الإنجليزية' },
+      conn: { en: 'Connection: Weak', ar: 'الاتصال: ضعيف' },
+    },
+    hudaResponse: {
+      en: 'A calmer step-free route with rest benches is available on your right. It will take approximately three additional minutes.',
+      ar: 'يتوفر مسار أكثر هدوءًا وخالٍ من الدرج مع مقاعد للراحة على يمينك. يستغرق ذلك حوالي ثلاث دقائق إضافية.',
+    },
+  },
+  {
+    id: 'wheelchair',
+    name: { en: 'Wheelchair Mode', ar: 'وضع الكرسي المتحرك' },
+    signals: {
+      route: { en: 'Route: Steps Ahead', ar: 'المسار: درج أمامك' },
+      stage: { en: 'Stage: Mina Gates', ar: 'المرحلة: بوابات منى' },
+      profile: { en: 'Profile: Wheelchair', ar: 'الملف: كرسي متحرك' },
+      lang: { en: 'Language: Urdu', ar: 'اللغة: الأوردو' },
+      conn: { en: 'Connection: Connected', ar: 'الاتصال: متصل' },
+    },
+    hudaResponse: {
+      en: 'A step-free ramp is available 30 metres to your left. Follow the blue arrow. Accessible facilities are nearby.',
+      ar: 'يتوفر منحدر ممهد وخالٍ من الدرج على بعد ٣٠ مترًا إلى يسارك. اتبع السهم الأزرق. تتوفر مرافق ميسرة بالقرب منك.',
+    },
+  },
+  {
+    id: 'visual',
+    name: { en: 'Visual Assistance', ar: 'المساعدة البصرية' },
+    signals: {
+      route: { en: 'Route: Obstacle', ar: 'المسار: عائق مؤقت' },
+      stage: { en: 'Stage: Jamarat', ar: 'المرحلة: الجمرات' },
+      profile: { en: 'Profile: Audio + Haptics', ar: 'الملف: صوت واهتزاز' },
+      lang: { en: 'Language: Arabic', ar: 'اللغة: العربية' },
+      conn: { en: 'Connection: Connected', ar: 'الاتصال: متصل' },
+    },
+    hudaResponse: {
+      en: 'Approaching high density area. Keep right, follow the tactile paving. Huda will vibrate once when it is time to turn.',
+      ar: 'تقترب من منطقة عالية الازدحام. الزم اليمين واتبع المسار الحسي. ستهتز هُدى مرة واحدة عندما يحين وقت المنعطف.',
+    },
+  },
+  {
+    id: 'simplified',
+    name: { en: 'Simplified Language', ar: 'لغة مبسطة' },
+    signals: {
+      route: { en: 'Route: Rerouted', ar: 'المسار: تحويل اتجاه' },
+      stage: { en: 'Stage: Arafat Exit', ar: 'المرحلة: مخرج عرفات' },
+      profile: { en: 'Profile: Easy Read', ar: 'الملف: قراءة سهلة' },
+      lang: { en: 'Language: Malay', ar: 'اللغة: الملايو' },
+      conn: { en: 'Connection: Offline', ar: 'الاتصال: دون اتصال' },
+    },
+    hudaResponse: {
+      en: 'The main road is closed. Walk to the green tents on your right. Your group is waiting for you there.',
+      ar: 'الطريق الرئيسي مغلق. سر نحو الخيام الخضراء على يمينك. مجموعتك تنتظرك هناك.',
+    },
   },
 ]

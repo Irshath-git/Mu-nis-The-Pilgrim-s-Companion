@@ -6,7 +6,7 @@ interface MunisMarkProps {
 }
 
 /**
- * The MUNIS symbol: two flowing emerald forms whose negative space traces a
+ * The Mu'nis symbol: two flowing emerald forms whose negative space traces a
  * path toward a small gold destination point. Inline SVG so it scales
  * crisply; decorative by default (the adjacent wordmark carries the name).
  */

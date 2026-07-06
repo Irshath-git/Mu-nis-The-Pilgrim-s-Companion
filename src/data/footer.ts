@@ -6,8 +6,32 @@ export const finalCta = {
     ar: 'ليتحرك كل ضيف من ضيوف الرحمن بوضوحٍ وكرامةٍ وثقة.',
   },
   supporting: {
-    en: 'MUNIS transforms trusted guidance into personal companionship throughout the sacred journey.',
+    en: `Mu'nis transforms trusted guidance into personal companionship throughout the sacred journey.`,
     ar: 'يحوِّل مُؤْنِس الإرشادات الموثوقة إلى رفقةٍ شخصية طوال الرحلة المباركة.',
+  },
+  earlyAccessLabel: {
+    en: 'Request early access',
+    ar: 'طلب الوصول المبكر',
+  },
+  emailPlaceholder: {
+    en: 'Enter your email address',
+    ar: 'أدخل البريد الإلكتروني',
+  },
+  notifyBtn: {
+    en: 'Notify Me',
+    ar: 'أشعرني',
+  },
+  successMsg: {
+    en: "You're on the list! We will notify you when early access opens.",
+    ar: 'تم تسجيلك بنجاح! سنقوم بإشعارك فور فتح باب الوصول المبكر.',
+  },
+  comingSoonStore: {
+    en: 'Coming Soon on the',
+    ar: 'قريباً على',
+  },
+  comingSoonPlay: {
+    en: 'Coming Soon on',
+    ar: 'قريباً على',
   },
 } as const
 
@@ -19,19 +43,21 @@ export const footer = {
   linksHeading: { en: 'Explore', ar: 'استكشف' },
   links: [
     { id: 'overview', label: { en: 'Overview', ar: 'نظرة عامة' } },
+    { id: 'about', label: { en: 'About Us', ar: 'عن التطبيق' } },
+    { id: 'problem', label: { en: 'The Problem', ar: 'المشكلة' } },
+    { id: 'solution', label: { en: 'The Solution', ar: 'الحل' } },
+    { id: 'how-it-works', label: { en: 'How It Works', ar: 'كيف يعمل' } },
+    { id: 'ar-maps', label: { en: 'AR Maps', ar: 'خرائط الواقع المعزز' } },
     { id: 'accessibility', label: { en: 'Accessibility', ar: 'إمكانية الوصول' } },
-    { id: 'technology', label: { en: 'Technology', ar: 'التقنية' } },
-    { id: 'roadmap', label: { en: 'Roadmap', ar: 'خارطة الطريق' } },
-    { id: 'privacy', label: { en: 'Privacy', ar: 'الخصوصية' } },
-    { id: 'contact', label: { en: 'Contact', ar: 'تواصل معنا' } },
+    { id: 'prototype', label: { en: 'Experience Prototype', ar: 'جرِّب النموذج' } },
   ] satisfies { id: string; label: Bilingual }[],
   statusHeading: { en: 'Project status', ar: 'حالة المشروع' },
   disclaimer: {
-    en: 'MUNIS is currently a prototype. Safety, operational, routing, crowd and emergency integrations require testing, validation and approval from relevant authorities and service providers.',
-    ar: 'مُؤْنِس حاليًا نموذج أولي. تتطلب تكاملات السلامة والتشغيل والمسارات والحشود والطوارئ اختبارًا وتحققًا واعتمادًا من الجهات المختصة ومزوّدي الخدمات المعنيين.',
+    en: "Mu'nis is currently a prototype. Live operational, routing, AR, crowd and assistance capabilities require testing, validation and authorisation.",
+    ar: 'مُؤْنِس حالياً نموذج أولي. تتطلب القدرات التشغيلية والمسارات الحية والواقع المعزز وإدارة الحشود وطلب المساعدة اختباراً وتحققاً واعتماداً رسمياً.',
   },
   copyright: {
-    en: 'MUNIS prototype — built for competition demonstration.',
+    en: "Mu'nis prototype — built for competition demonstration.",
     ar: 'نموذج مُؤْنِس الأولي — أُعدّ لأغراض العرض في المسابقة.',
   },
 } as const

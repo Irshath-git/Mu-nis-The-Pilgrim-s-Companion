@@ -54,3 +54,24 @@
     display: none;
   }
 }
+
+.lockup__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.lockup--white .lockup__subtitle {
+  color: var(--on-dark-muted);
+}
+
+@media (max-width: 768px) {
+  .lockup__subtitle,
+  .lockup__subtitle + .lockup__divider,
+  .lockup__divider:nth-of-type(2) {
+    display: none;
+  }
+}

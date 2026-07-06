@@ -1,0 +1,80 @@
+.coming-soon {
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.coming-soon__supporting {
+  font-size: var(--text-lead);
+  color: var(--soft-slate);
+  margin-block-end: 2rem;
+  line-height: 1.6;
+}
+
+.coming-soon__badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.store-badge-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--night-indigo);
+  border: 1px solid rgba(246, 241, 232, 0.12);
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  width: 200px;
+  text-align: start;
+  user-select: none;
+  box-shadow: var(--shadow-soft);
+  opacity: 0.85;
+}
+
+.store-badge-card--disabled {
+  cursor: not-allowed;
+}
+
+.store-badge-card__logo {
+  width: 28px;
+  height: 28px;
+  color: var(--moon-ivory);
+  flex-shrink: 0;
+}
+
+.store-badge-card__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.store-badge-card__sub {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--desert-sand);
+}
+
+.store-badge-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--moon-ivory);
+}
+
+html[lang='ar'] .store-badge-card__title {
+  font-family: var(--font-arabic);
+}
+
+@media (max-width: 480px) {
+  .coming-soon__badges {
+    flex-direction: column;
+    align-items: center;
+  }
+  .store-badge-card {
+    width: 100%;
+    max-width: 240px;
+  }
+}

@@ -7,7 +7,7 @@ import type { Bilingual } from '../types/content'
  */
 
 export const brand = {
-  nameEn: 'MUNIS',
+  nameEn: "Mu'nis",
   nameAr: 'مُؤْنِس',
   taglineEn: 'Your companion at every step.',
   taglineAr: 'رفيقك في كل خطوة',
@@ -24,15 +24,13 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { id: 'overview', label: { en: 'Overview', ar: 'نظرة عامة' } },
-  { id: 'challenge', label: { en: 'Challenge', ar: 'التحدي' } },
-  { id: 'solution', label: { en: 'Solution', ar: 'الحل' } },
-  { id: 'journey', label: { en: 'Journey', ar: 'الرحلة' } },
-  { id: 'experience', label: { en: 'Experience', ar: 'التجربة' } },
+  { id: 'about', label: { en: 'About Us', ar: 'عن التطبيق' } },
+  { id: 'problem', label: { en: 'The Problem', ar: 'المشكلة' } },
+  { id: 'solution', label: { en: 'The Solution', ar: 'الحل' } },
+  { id: 'how-it-works', label: { en: 'How It Works', ar: 'كيف يعمل' } },
+  { id: 'ar-maps', label: { en: 'AR Maps', ar: 'خرائط الواقع المعزز' } },
   { id: 'accessibility', label: { en: 'Accessibility', ar: 'إمكانية الوصول' } },
-  { id: 'technology', label: { en: 'Technology', ar: 'التقنية' } },
-  { id: 'impact', label: { en: 'Impact', ar: 'الأثر' } },
-  { id: 'roadmap', label: { en: 'Roadmap', ar: 'خارطة الطريق' } },
-  { id: 'team', label: { en: 'Team', ar: 'الفريق' } },
+  { id: 'prototype', label: { en: 'Experience Prototype', ar: 'جرِّب النموذج' } },
 ]
 
 export const ui = {
@@ -43,9 +41,9 @@ export const ui = {
   switchToArabic: { en: 'العربية', ar: 'العربية' },
   switchToEnglish: { en: 'EN', ar: 'EN' },
   languageSelector: { en: 'Language', ar: 'اللغة' },
-  ctaPrototype: { en: 'Experience Prototype', ar: 'جرِّب النموذج الأولي' },
+  ctaPrototype: { en: 'Experience the Prototype', ar: 'جرِّب النموذج الأولي' },
   ctaPrototypeLong: { en: 'Experience the Prototype', ar: 'جرِّب النموذج الأولي' },
-  ctaHowItWorks: { en: 'See How MUNIS Works', ar: 'تعرَّف على طريقة عمل مُؤْنِس' },
+  ctaHowItWorks: { en: `See How It Works`, ar: 'شاهد طريقة العمل' },
   ctaReturnOverview: { en: 'Return to Overview', ar: 'العودة إلى النظرة العامة' },
   competitionTrack: {
     en: 'Hajj & Umrah Experience Technologies',

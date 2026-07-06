@@ -1,47 +1,64 @@
 /* ============================================================
-   MUNIS design tokens — the single source of truth for colour,
+   Mu'nis design tokens — the single source of truth for colour,
    type, spacing, radius, elevation and motion.
    ============================================================ */
 
 :root {
-  /* ---- Brand palette ---- */
-  --emerald-950: #00372e;
-  --emerald-900: #00483a;
-  --emerald-800: #005a47;
-  --emerald-700: #006b52;
-  --emerald-500: #00a67e;
+  /* ---- Brand palette: SAKINAH HORIZON ---- */
+  --night-indigo: #24324A;
+  --midnight-navy: #182235;
+  --moon-ivory: #F6F1E8;
+  --desert-sand: #D9C7A8;
+  --mist-blue: #B8CED8;
+  --rose-clay: #C98D78;
+  --soft-slate: #697481;
+  --cloud-mist: #E8EEF0;
 
-  --gold-600: #b8963e;
-  --gold-500: #c8a951;
-  --gold-200: #e5d39b;
-  /* Darkened gold for small text on light backgrounds (≥4.5:1) */
-  --gold-700: #7a6228;
-
-  --warm-white: #faf9f5;
   --pure-white: #ffffff;
-  --near-black: #111714;
-  /* Spec muted (#68736E) is ~4.4:1 on soft surfaces; darkened for AA */
-  --text-muted: #5c6763;
-  --text-faint: #68736e;
-  --surface-soft: #f2f5f1;
-  --border-soft: #dde6e1;
+  --near-black: var(--midnight-navy);
+  --warm-white: var(--moon-ivory);
+
+  /* ---- Derived theme defaults ---- */
+  --text-muted: var(--soft-slate);
+  --text-faint: var(--soft-slate);
+  --surface-soft: var(--cloud-mist);
+  --border-soft: rgba(36, 50, 74, 0.12); /* base on night-indigo */
 
   /* ---- Functional states (never colour-only) ---- */
   --warning: #c98320;
   --warning-text: #8a5410;
   --warning-soft: #fdf3e4;
-  --critical: #b83a3a;
-  --critical-text: #a53434;
-  --critical-soft: #fbeeee;
-  --success: #21855b;
-  --success-text: #1b6b49;
-  --success-soft: #e9f5ef;
+  --critical: var(--rose-clay);
+  --critical-text: #8c422a;
+  --critical-soft: #fbf5f2;
+  --success: #2e624c;
+  --success-text: #1d4634;
+  --success-soft: #eaf1ed;
 
   /* ---- Derived surfaces ---- */
-  --emerald-tint: #e7f2ee;
-  --gold-tint: #faf5e7;
-  --on-dark-muted: #b8cbc4;
-  --on-dark-border: rgba(250, 249, 245, 0.16);
+  --emerald-tint: var(--cloud-mist);
+  --gold-tint: rgba(217, 199, 168, 0.15); /* desert sand tint */
+  --on-dark-muted: var(--mist-blue);
+  --on-dark-border: rgba(246, 241, 232, 0.16);
+
+  /* ---- Legacy color mapping fallbacks to prevent broken elements ---- */
+  --emerald-950: var(--midnight-navy);
+  --emerald-900: var(--night-indigo);
+  --emerald-800: var(--night-indigo);
+  --emerald-700: var(--night-indigo);
+  --emerald-500: var(--mist-blue);
+
+  --gold-700: var(--rose-clay);
+  --gold-600: var(--desert-sand);
+  --gold-500: var(--desert-sand);
+  --gold-200: var(--moon-ivory);
+
+  --dawn-ivory: var(--moon-ivory);
+  --dawn-sand: var(--desert-sand);
+  --dawn-sage: var(--cloud-mist);
+  --dawn-emerald: var(--midnight-navy);
+  --dawn-gold: var(--rose-clay);
+  --dawn-gold-muted: var(--desert-sand);
 
   /* ---- Typography ---- */
   --font-heading: 'Manrope Variable', 'Noto Kufi Arabic', 'Segoe UI', system-ui, sans-serif;

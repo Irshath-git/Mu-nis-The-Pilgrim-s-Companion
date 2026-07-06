@@ -22,7 +22,7 @@ function classes(variant: Variant, small: boolean, extra?: string) {
     .join(' ')
 }
 
-/** Button or anchor with shared MUNIS styling. Renders a real <a> when href is given. */
+/** Button or anchor with shared Mu'nis styling. Renders a real <a> when href is given. */
 export function Button(props: Props) {
   const { variant = 'primary', small = false, children, className, ...rest } = props
   const cls = classes(variant, small, className)

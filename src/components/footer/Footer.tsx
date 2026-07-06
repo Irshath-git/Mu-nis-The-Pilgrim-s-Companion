@@ -13,7 +13,7 @@ export function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand-col">
-            <MunisLockup variant="white" />
+            <MunisLockup variant="white" showSubtitle={true} />
             <p className="footer__summary">{t(footer.summary)}</p>
             <LanguageToggle idSuffix="-footer" />
           </div>
