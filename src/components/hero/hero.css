@@ -625,9 +625,31 @@ html[lang='ar'] .hero__headline {
   gap: 0.4rem;
   margin-block: 0.5rem;
   text-align: center;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  background: radial-gradient(
+    circle,
+    rgba(0, 166, 126, 0.09) 0%,
+    rgba(200, 169, 81, 0.04) 55%,
+    transparent 100%
+  );
+  animation: assistant-wrap-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes assistant-wrap-pulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
 }
 
 .hero-phone__huda-avatar {
+  position: relative;
   width: 52px;
   height: 52px;
   background: var(--night-indigo);
@@ -639,6 +661,42 @@ html[lang='ar'] .hero__headline {
   box-shadow: 0 4px 15px rgba(17, 23, 20, 0.15);
   font-size: 1.6rem;
   line-height: 1;
+  z-index: 1;
+}
+
+/* Glowing ripple effects */
+.hero-phone__huda-avatar::before,
+.hero-phone__huda-avatar::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--desert-sand);
+  opacity: 0;
+  pointer-events: none;
+  animation: huda-avatar-pulse 3s infinite cubic-bezier(0.25, 0, 0, 1);
+  z-index: -1;
+}
+
+.hero-phone__huda-avatar::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes huda-avatar-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+    border-color: var(--luminous-emerald);
+    box-shadow: 0 0 8px var(--luminous-emerald);
+  }
+  50% {
+    border-color: var(--desert-sand);
+    box-shadow: 0 0 12px var(--desert-sand);
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
 }
 
 .hero-phone__status-text {
@@ -663,8 +721,27 @@ html[lang='ar'] .hero__headline {
 
 .ph-wave--premium .ph-wave__bar {
   width: 3px;
+  border-radius: 999px;
   background: linear-gradient(to top, var(--primary-emerald) 0%, var(--luminous-emerald) 100%);
+  animation: ph-wave-bounce 1s ease-in-out infinite alternate;
 }
+
+/* Individual organic waveform animations */
+.ph-wave--premium .ph-wave__bar:nth-child(1) { height: 8px; animation-delay: 0.1s; animation-duration: 0.7s; }
+.ph-wave--premium .ph-wave__bar:nth-child(2) { height: 16px; animation-delay: 0.25s; animation-duration: 1.0s; }
+.ph-wave--premium .ph-wave__bar:nth-child(3) { height: 12px; animation-delay: 0.15s; animation-duration: 0.8s; }
+.ph-wave--premium .ph-wave__bar:nth-child(4) { height: 24px; animation-delay: 0.4s; animation-duration: 1.2s; }
+.ph-wave--premium .ph-wave__bar:nth-child(5) { height: 18px; animation-delay: 0.2s; animation-duration: 0.9s; }
+.ph-wave--premium .ph-wave__bar:nth-child(6) { height: 28px; animation-delay: 0.5s; animation-duration: 1.3s; }
+.ph-wave--premium .ph-wave__bar:nth-child(7) { height: 20px; animation-delay: 0.35s; animation-duration: 1.1s; }
+.ph-wave--premium .ph-wave__bar:nth-child(8) { height: 32px; animation-delay: 0.6s; animation-duration: 1.4s; }
+.ph-wave--premium .ph-wave__bar:nth-child(9) { height: 20px; animation-delay: 0.3s; animation-duration: 1.1s; }
+.ph-wave--premium .ph-wave__bar:nth-child(10) { height: 26px; animation-delay: 0.45s; animation-duration: 1.2s; }
+.ph-wave--premium .ph-wave__bar:nth-child(11) { height: 16px; animation-delay: 0.15s; animation-duration: 0.9s; }
+.ph-wave--premium .ph-wave__bar:nth-child(12) { height: 22px; animation-delay: 0.35s; animation-duration: 1.0s; }
+.ph-wave--premium .ph-wave__bar:nth-child(13) { height: 12px; animation-delay: 0.2s; animation-duration: 0.8s; }
+.ph-wave--premium .ph-wave__bar:nth-child(14) { height: 18px; animation-delay: 0.55s; animation-duration: 1.1s; }
+.ph-wave--premium .ph-wave__bar:nth-child(15) { height: 6px; animation-delay: 0.1s; animation-duration: 0.7s; }
 
 .hero-phone__stage-card {
   display: flex;
