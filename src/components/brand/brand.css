@@ -1,0 +1,56 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.lockup__words {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.lockup__ar {
+  font-family: var(--font-arabic);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  /* Room for the diacritics of مُؤْنِس */
+  padding-block: 0.2em;
+  color: var(--emerald-900);
+}
+
+.lockup__en {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  color: var(--emerald-900);
+}
+
+.lockup__divider {
+  inline-size: 1px;
+  block-size: 1.15rem;
+  background: var(--border-soft);
+}
+
+.lockup--white .lockup__ar,
+.lockup--white .lockup__en {
+  color: var(--warm-white);
+}
+
+.lockup--white .lockup__divider {
+  background: var(--on-dark-border);
+}
+
+@media (max-width: 400px) {
+  .lockup__en {
+    display: none;
+  }
+
+  .lockup__divider {
+    display: none;
+  }
+}

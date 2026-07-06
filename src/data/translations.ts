@@ -1,0 +1,63 @@
+import type { Bilingual } from '../types/content'
+
+/**
+ * Global interface strings shared across the shell (navigation, CTAs,
+ * common labels). Section-specific copy lives in that section's data file.
+ * Brand rule: the Arabic name is always exactly مُؤْنِس.
+ */
+
+export const brand = {
+  nameEn: 'MUNIS',
+  nameAr: 'مُؤْنِس',
+  taglineEn: 'Your companion at every step.',
+  taglineAr: 'رفيقك في كل خطوة',
+  productTitle: {
+    en: 'The Pilgrim’s Companion',
+    ar: 'رفيق ضيوف الرحمن',
+  } satisfies Bilingual,
+}
+
+export interface NavItem {
+  id: string
+  label: Bilingual
+}
+
+export const navItems: NavItem[] = [
+  { id: 'overview', label: { en: 'Overview', ar: 'نظرة عامة' } },
+  { id: 'challenge', label: { en: 'Challenge', ar: 'التحدي' } },
+  { id: 'solution', label: { en: 'Solution', ar: 'الحل' } },
+  { id: 'journey', label: { en: 'Journey', ar: 'الرحلة' } },
+  { id: 'experience', label: { en: 'Experience', ar: 'التجربة' } },
+  { id: 'accessibility', label: { en: 'Accessibility', ar: 'إمكانية الوصول' } },
+  { id: 'technology', label: { en: 'Technology', ar: 'التقنية' } },
+  { id: 'impact', label: { en: 'Impact', ar: 'الأثر' } },
+  { id: 'roadmap', label: { en: 'Roadmap', ar: 'خارطة الطريق' } },
+  { id: 'team', label: { en: 'Team', ar: 'الفريق' } },
+]
+
+export const ui = {
+  skipToContent: { en: 'Skip to main content', ar: 'تخطَّ إلى المحتوى الرئيسي' },
+  openMenu: { en: 'Open navigation menu', ar: 'افتح قائمة التنقل' },
+  closeMenu: { en: 'Close navigation menu', ar: 'أغلق قائمة التنقل' },
+  mainNavigation: { en: 'Main navigation', ar: 'التنقل الرئيسي' },
+  switchToArabic: { en: 'العربية', ar: 'العربية' },
+  switchToEnglish: { en: 'EN', ar: 'EN' },
+  languageSelector: { en: 'Language', ar: 'اللغة' },
+  ctaPrototype: { en: 'Experience Prototype', ar: 'جرِّب النموذج الأولي' },
+  ctaPrototypeLong: { en: 'Experience the Prototype', ar: 'جرِّب النموذج الأولي' },
+  ctaHowItWorks: { en: 'See How MUNIS Works', ar: 'تعرَّف على طريقة عمل مُؤْنِس' },
+  ctaReturnOverview: { en: 'Return to Overview', ar: 'العودة إلى النظرة العامة' },
+  competitionTrack: {
+    en: 'Hajj & Umrah Experience Technologies',
+    ar: 'تقنيات تجربة الحج والعمرة',
+  },
+  prototypeStatus: { en: 'Prototype stage', ar: 'مرحلة النموذج الأولي' },
+  maturity: {
+    prototype: { en: 'Prototype', ar: 'نموذج أولي' },
+    pilot: { en: 'Planned Pilot', ar: 'تجربة تشغيلية مخطَّطة' },
+    future: { en: 'Future Authorised Integration', ar: 'تكامل مستقبلي معتمد' },
+  },
+  offline: { en: 'Offline', ar: 'دون اتصال' },
+  cached: { en: 'Saved offline', ar: 'محفوظ دون اتصال' },
+  live: { en: 'Live', ar: 'مباشر' },
+} as const

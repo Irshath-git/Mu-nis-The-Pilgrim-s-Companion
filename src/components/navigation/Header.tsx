@@ -1,0 +1,129 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import { navItems, ui } from '../../data/translations'
+import { useLanguage } from '../../hooks/useLanguage'
+import { useScrollSpy } from '../../hooks/useScrollSpy'
+import { useFocusTrap } from '../../hooks/useFocusTrap'
+import { MunisLockup } from '../brand/MunisLockup'
+import { LanguageToggle } from './LanguageToggle'
+import './navigation.css'
+
+export function Header() {
+  const { t } = useLanguage()
+  const [scrolled, setScrolled] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const sectionIds = useMemo(() => navItems.map((item) => item.id), [])
+  const activeSection = useScrollSpy(sectionIds)
+
+  useFocusTrap(drawerRef, drawerOpen)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Escape closes the drawer; body scroll locked while open
+  useEffect(() => {
+    if (!drawerOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDrawerOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [drawerOpen])
+
+  const navLinks = (onClick?: () => void) =>
+    navItems.map((item) => (
+      <li key={item.id}>
+        <a
+          href={`#${item.id}`}
+          className="nav__link"
+          aria-current={activeSection === item.id ? 'true' : undefined}
+          onClick={onClick}
+        >
+          {t(item.label)}
+        </a>
+      </li>
+    ))
+
+  return (
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
+      <div className="header__inner container">
+        <a href="#overview" className="header__brand" aria-label="MUNIS — مُؤْنِس, back to overview">
+          <MunisLockup />
+        </a>
+
+        <nav className="header__nav" aria-label={t(ui.mainNavigation)}>
+          <ul className="nav__list">{navLinks()}</ul>
+        </nav>
+
+        <div className="header__actions">
+          <LanguageToggle />
+          <a href="#experience" className="btn btn--primary btn--sm header__cta">
+            {t(ui.ctaPrototype)}
+          </a>
+          <button
+            className="header__burger"
+            aria-expanded={drawerOpen}
+            aria-controls="mobile-drawer"
+            aria-label={drawerOpen ? t(ui.closeMenu) : t(ui.openMenu)}
+            onClick={() => setDrawerOpen((open) => !open)}
+          >
+            <Menu size={24} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      <div
+        className={`drawer${drawerOpen ? ' drawer--open' : ''}`}
+        id="mobile-drawer"
+        {...(!drawerOpen ? { inert: true } : {})}
+      >
+        <div
+          className="drawer__backdrop"
+          onClick={() => setDrawerOpen(false)}
+          aria-hidden="true"
+        />
+        <div
+          ref={drawerRef}
+          className="drawer__panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t(ui.mainNavigation)}
+        >
+          <div className="drawer__head">
+            <MunisLockup markSize={28} />
+            <button
+              className="drawer__close"
+              aria-label={t(ui.closeMenu)}
+              onClick={() => setDrawerOpen(false)}
+            >
+              <X size={24} aria-hidden="true" />
+            </button>
+          </div>
+          <nav aria-label={t(ui.mainNavigation)}>
+            <ul className="drawer__list">{navLinks(() => setDrawerOpen(false))}</ul>
+          </nav>
+          <div className="drawer__foot">
+            <LanguageToggle idSuffix="-drawer" />
+            <a
+              href="#experience"
+              className="btn btn--primary drawer__cta"
+              onClick={() => setDrawerOpen(false)}
+            >
+              {t(ui.ctaPrototype)}
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}

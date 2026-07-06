@@ -1,0 +1,230 @@
+/* ============================================================
+   Shared primitives: buttons, badges, chips
+   ============================================================ */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition:
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    transform var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--emerald-700);
+  color: var(--pure-white);
+}
+
+.btn--primary:hover {
+  background: var(--emerald-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--secondary {
+  border-color: rgba(0, 107, 82, 0.35);
+  color: var(--emerald-800);
+  background: transparent;
+}
+
+.btn--secondary:hover {
+  background: var(--emerald-tint);
+  border-color: var(--emerald-700);
+}
+
+/* Inverted pair for deep-emerald surfaces */
+.btn--light {
+  background: var(--warm-white);
+  color: var(--emerald-900);
+}
+
+.btn--light:hover {
+  background: var(--pure-white);
+  box-shadow: 0 6px 24px -8px rgba(0, 0, 0, 0.45);
+}
+
+.btn--outline-light {
+  border-color: rgba(250, 249, 245, 0.45);
+  color: var(--warm-white);
+}
+
+.btn--outline-light:hover {
+  border-color: var(--warm-white);
+  background: rgba(250, 249, 245, 0.08);
+}
+
+.btn--sm {
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  font-size: var(--text-sm);
+}
+
+/* ---- Maturity + status badges ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge--prototype {
+  background: var(--emerald-tint);
+  color: var(--emerald-800);
+  border-color: rgba(0, 107, 82, 0.25);
+}
+
+.badge--pilot {
+  background: var(--gold-tint);
+  color: var(--gold-700);
+  border-color: rgba(184, 150, 62, 0.35);
+}
+
+.badge--future {
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  border-color: var(--border-soft);
+}
+
+.badge--outline-dark {
+  background: rgba(250, 249, 245, 0.08);
+  color: var(--gold-200);
+  border-color: rgba(229, 211, 155, 0.35);
+}
+
+/* ---- Small capability chip (hero row, phone UI) ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--pure-white);
+  border: 1px solid var(--border-soft);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--emerald-900);
+}
+
+.chip svg {
+  color: var(--emerald-700);
+}
+
+/* ---- Accessible tabs ---- */
+.tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-block-end: 1px solid var(--border-soft);
+  padding-block-end: 0.75rem;
+  margin-block-end: 1.75rem;
+}
+
+.tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+
+.tabs__tab:hover {
+  color: var(--emerald-800);
+  background: var(--emerald-tint);
+}
+
+.tabs__tab[aria-selected='true'] {
+  background: var(--emerald-800);
+  color: var(--pure-white);
+}
+
+/* ---- Accessible accordion ---- */
+.accordion__item {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--pure-white);
+  overflow: hidden;
+}
+
+.accordion__item + .accordion__item {
+  margin-block-start: 0.65rem;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  inline-size: 100%;
+  min-height: 56px;
+  padding: 0.9rem 1.15rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-body-lg);
+  text-align: start;
+  color: var(--near-black);
+}
+
+.accordion__trigger:hover {
+  background: var(--surface-soft);
+}
+
+.accordion__chevron {
+  flex-shrink: 0;
+  color: var(--emerald-700);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.accordion__trigger[aria-expanded='true'] .accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-med) var(--ease-out);
+}
+
+.accordion__panel[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.accordion__panel-inner {
+  overflow: hidden;
+}
+
+.accordion__panel-content {
+  padding: 0.25rem 1.15rem 1.25rem;
+}
