@@ -1,0 +1,50 @@
+warning: in the working copy of '.claude/launch.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/about/about.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/accessibility/AccessibilitySection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/accessibility/accessibility.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ar/ARMaps.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ar/armaps.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/brand/brand.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/challenge/challenge.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/comingsoon/ComingSoon.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/comingsoon/comingsoon.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/common/phone.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/footer/FinalCta.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/footer/footer.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/hero/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/hero/HeroPhone.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/hero/hero.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/journey/journey.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/navigation/navigation.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/solution/solution.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/journey.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/components.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/tokens.css', LF will be replaced by CRLF the next time Git touches it
+ .claude/launch.json                                |   3 [32m+[m[31m-[m
+ index.html                                         |   5 [32m+[m[31m-[m
+ src/App.tsx                                        |   2 [32m+[m
+ src/components/about/About.tsx                     |  18 [32m+[m
+ src/components/about/about.css                     |  50 [32m+++[m
+ .../accessibility/AccessibilitySection.tsx         | 152 [32m+++++[m[31m---[m
+ src/components/accessibility/accessibility.css     | 281 [32m++++++++++++++[m[31m-[m
+ src/components/ar/ARMaps.tsx                       |  27 [32m+[m[31m-[m
+ src/components/ar/armaps.css                       | 136 [32m+++++[m[31m--[m
+ src/components/brand/brand.css                     |   6 [32m+[m[31m-[m
+ src/components/challenge/challenge.css             |  24 [32m+[m[31m-[m
+ src/components/comingsoon/ComingSoon.tsx           |  19 [32m+[m[31m-[m
+ src/components/comingsoon/comingsoon.css           |  47 [32m++[m[31m-[m
+ src/components/common/phone.css                    |  12 [32m+[m[31m-[m
+ src/components/footer/FinalCta.tsx                 |  13 [32m+[m
+ src/components/footer/footer.css                   |  38 [32m+[m[31m-[m
+ src/components/hero/Hero.tsx                       |  34 [32m+[m[31m-[m
+ src/components/hero/HeroPhone.tsx                  | 190 [32m++++[m[31m------[m
+ src/components/hero/hero.css                       | 395 [32m+++++++++++++++++++[m[31m--[m
+ src/components/journey/journey.css                 |  62 [32m++[m[31m--[m
+ src/components/navigation/navigation.css           |  49 [32m++[m[31m-[m
+ src/components/solution/solution.css               |  20 [32m+[m[31m-[m
+ src/data/journey.ts                                |  20 [32m++[m
+ src/styles/components.css                          |  35 [32m+[m[31m-[m
+ src/styles/tokens.css                              | 120 [32m++++[m[31m---[m
+ 25 files changed, 1350 insertions(+), 408 deletions(-)

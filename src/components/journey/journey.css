@@ -41,7 +41,7 @@
 
 .journey-timeline__fill {
   height: 100%;
-  background: var(--emerald-500);
+  background: var(--mist-blue);
   transition: width var(--dur-med) var(--ease-out);
 }
 
@@ -73,14 +73,14 @@
 }
 
 .journey-timeline__node:hover .journey-timeline__dot {
-  border-color: var(--emerald-500);
-  color: var(--emerald-800);
+  border-color: var(--mist-blue);
+  color: var(--night-indigo);
 }
 
 .journey-timeline__node--active .journey-timeline__dot {
-  background: var(--emerald-950);
-  border-color: var(--gold-500);
-  color: var(--gold-200);
+  background: var(--midnight-navy);
+  border-color: var(--desert-sand);
+  color: var(--moon-ivory);
   box-shadow: 0 0 12px rgba(200, 169, 81, 0.45);
   transform: scale(1.1);
 }
@@ -96,7 +96,7 @@
 }
 
 .journey-timeline__node--active .journey-timeline__label {
-  color: var(--emerald-950);
+  color: var(--midnight-navy);
   font-weight: 800;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .journey-visual-card {
-  background: linear-gradient(135deg, var(--emerald-950) 0%, #002b24 100%) !important;
+  background: linear-gradient(135deg, var(--midnight-navy) 0%, var(--night-indigo) 100%) !important;
   color: var(--warm-white);
   padding: 2.25rem !important;
   border-radius: var(--radius-card);
@@ -144,14 +144,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(250, 249, 245, 0.08);
-  border: 1px solid rgba(250, 249, 245, 0.12);
+  background: rgba(246, 241, 232, 0.08);
+  border: 1px solid rgba(246, 241, 232, 0.12);
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--gold-200);
+  color: var(--desert-sand);
 }
 
 .visual-card__status {
@@ -161,12 +161,12 @@
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--on-dark-muted);
+  color: var(--mist-blue);
 }
 
 .visual-card__screen {
-  background: rgba(250, 249, 245, 0.04);
-  border: 1px solid rgba(250, 249, 245, 0.1);
+  background: rgba(246, 241, 232, 0.04);
+  border: 1px solid rgba(246, 241, 232, 0.1);
   border-radius: var(--radius-card);
   padding: 0.85rem;
   flex: 1;
@@ -201,9 +201,9 @@
   border-radius: 50%;
 }
 
-.dot--red { background: #f87171; }
-.dot--yellow { background: #fbbf24; }
-.dot--green { background: #34d399; }
+.dot--red { background: var(--critical); }
+.dot--yellow { background: var(--warning); }
+.dot--green { background: var(--luminous-emerald); }
 
 .visual-card__app-body {
   display: flex;
@@ -217,7 +217,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--emerald-tint);
+  background: var(--cloud-mist);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,7 +249,7 @@
 .dest-marker-pulse {
   width: 8px;
   height: 8px;
-  background: var(--gold-500);
+  background: var(--rose-clay);
   border-radius: 50%;
   position: relative;
 }
@@ -258,7 +258,7 @@
   content: '';
   position: absolute;
   inset: -4px;
-  border: 1px solid var(--gold-500);
+  border: 1px solid var(--rose-clay);
   border-radius: 50%;
   animation: pulser-wave 2s infinite linear;
 }
@@ -267,7 +267,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--gold-200);
+  color: var(--desert-sand);
 }
 
 /* ---- Checklist Details ---- */
@@ -289,7 +289,7 @@
 }
 
 .journey-details__icon {
-  color: var(--emerald-800);
+  color: var(--night-indigo);
 }
 
 .journey-details__heading {
@@ -314,7 +314,7 @@
 }
 
 .journey-details__check-icon {
-  color: var(--emerald-500);
+  color: var(--mist-blue);
   flex-shrink: 0;
   margin-block-start: 3px;
 }
@@ -396,9 +396,9 @@
   }
 
   .journey-mobile__item--active .journey-mobile__node-dot {
-    background: var(--emerald-950);
-    border-color: var(--gold-500);
-    color: var(--gold-200);
+    background: var(--midnight-navy);
+    border-color: var(--desert-sand);
+    color: var(--moon-ivory);
     box-shadow: 0 0 10px rgba(200, 169, 81, 0.35);
   }
 
@@ -411,7 +411,7 @@
   }
 
   .journey-mobile__item--active .journey-mobile__title {
-    color: var(--emerald-950);
+    color: var(--midnight-navy);
     font-weight: 800;
   }
 
@@ -439,11 +439,11 @@
   .journey-mobile__mock-instruction {
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--emerald-900);
+    color: var(--night-indigo);
     padding: 0.65rem 0.85rem;
-    background: var(--emerald-tint);
+    background: var(--cloud-mist);
     border-radius: var(--radius-sm);
-    border-inline-start: 3.5px solid var(--emerald-800);
+    border-inline-start: 3.5px solid var(--night-indigo);
   }
 
   .journey-mobile__checklist {
@@ -464,7 +464,7 @@
   }
 
   .journey-mobile__check-icon {
-    color: var(--emerald-500);
+    color: var(--mist-blue);
     flex-shrink: 0;
   }
 }

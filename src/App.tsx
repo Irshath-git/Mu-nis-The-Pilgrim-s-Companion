@@ -8,6 +8,7 @@ import { Challenge } from './components/challenge/Challenge'
 import { SolutionFlow } from './components/solution/SolutionFlow'
 import { CapabilityMaturity } from './components/solution/CapabilityMaturity'
 import { ARMaps } from './components/ar/ARMaps'
+import { SacredBand } from './components/journey/SacredBand'
 import { Journey } from './components/journey/Journey'
 import { AccessibilitySection } from './components/accessibility/AccessibilitySection'
 import { PrototypeDemo } from './components/prototype/PrototypeDemo'
@@ -36,6 +37,7 @@ function Page() {
         <SolutionFlow />
         <CapabilityMaturity />
         <ARMaps />
+        <SacredBand />
         <Journey />
         <AccessibilitySection />
         <PrototypeDemo />

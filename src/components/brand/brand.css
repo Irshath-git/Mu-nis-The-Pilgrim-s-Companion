@@ -18,7 +18,7 @@
   line-height: 1;
   /* Room for the diacritics of مُؤْنِس */
   padding-block: 0.2em;
-  color: var(--emerald-900);
+  color: var(--night-indigo);
 }
 
 .lockup__en {
@@ -27,7 +27,7 @@
   font-weight: 800;
   letter-spacing: 0.16em;
   line-height: 1;
-  color: var(--emerald-900);
+  color: var(--night-indigo);
 }
 
 .lockup__divider {
@@ -45,7 +45,7 @@
   background: var(--on-dark-border);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .lockup__en {
     display: none;
   }

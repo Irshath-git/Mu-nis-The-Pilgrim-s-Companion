@@ -26,10 +26,36 @@ export function Hero() {
   return (
     <section id="overview" className="hero" aria-labelledby="hero-heading">
       <div className="hero__bg" aria-hidden="true">
-        <svg className="hero__decor-route" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-100 480 C 200 440, 300 200, 700 280 C 1100 360, 1200 120, 1380 180" stroke="var(--mist-blue)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.25" />
-          <circle cx="1380" cy="180" r="5" fill="var(--rose-clay)" opacity="0.8" />
-          <circle cx="1380" cy="180" r="10" stroke="var(--rose-clay)" strokeWidth="1" opacity="0.3" className="hero__decor-pulse" />
+        {/* Cinematic layers: slow-moving photograph, emerald grade, drifting
+            aurora glow, vignette and fine grain — a "living" backdrop with
+            no video file required. All motion pauses under reduced-motion. */}
+        <div className="hero__bg-image" />
+        <div className="hero__bg-overlay" />
+        <div className="hero__bg-aurora" />
+        <div className="hero__bg-vignette" />
+        <div className="hero__bg-grain" />
+
+        {/* Subtle emerald guidance route + gold destination point */}
+        <svg className="hero__decor-route" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <path
+            className="hero__route-glow"
+            d="M-120 520 C 220 470, 360 250, 720 300 C 1080 350, 1220 150, 1400 200"
+            stroke="var(--luminous-emerald)"
+            strokeWidth="7"
+            strokeLinecap="round"
+            opacity="0.14"
+          />
+          <path
+            className="hero__route-dash"
+            d="M-120 520 C 220 470, 360 250, 720 300 C 1080 350, 1220 150, 1400 200"
+            stroke="var(--luminous-emerald)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeDasharray="2 14"
+            opacity="0.55"
+          />
+          <circle cx="1400" cy="200" r="6" fill="var(--sacred-gold)" opacity="0.9" />
+          <circle className="hero__decor-pulse" cx="1400" cy="200" r="12" stroke="var(--sacred-gold)" strokeWidth="1.5" opacity="0.4" />
         </svg>
       </div>
       <div className="container hero__inner">

@@ -49,9 +49,9 @@
 }
 
 @keyframes solution-dest-pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201, 141, 120, 0.6); }
-  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(201, 141, 120, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201, 141, 120, 0); }
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200, 169, 81, 0.6); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(200, 169, 81, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200, 169, 81, 0); }
 }
 
 .solution-stage {
@@ -75,7 +75,7 @@
   font-family: var(--font-heading);
   font-weight: 800;
   margin-block-end: 1.1rem;
-  box-shadow: 0 0 0 6px var(--moon-ivory), 0 4px 12px rgba(24, 34, 53, 0.25);
+  box-shadow: 0 0 0 6px var(--moon-ivory), 0 4px 12px rgba(17, 23, 20, 0.25);
 }
 
 .section--soft .solution-stage__marker {
@@ -86,7 +86,7 @@
   inline-size: 100%;
   flex: 1;
   background: var(--pure-white);
-  border: 1px solid rgba(24, 34, 53, 0.08);
+  border: 1px solid rgba(17, 23, 20, 0.08);
   box-shadow: var(--shadow-soft);
   transition:
     transform var(--dur-med) var(--ease-out),
@@ -235,7 +235,7 @@ html[lang='ar'] .solution-flow__closing p {
   border-color: var(--rose-clay);
   color: var(--midnight-navy) !important;
   font-weight: 700;
-  box-shadow: 0 0 16px rgba(201, 141, 120, 0.45);
+  box-shadow: 0 0 16px rgba(200, 169, 81, 0.45);
 }
 
 .how-works__dashboard {
@@ -249,7 +249,7 @@ html[lang='ar'] .solution-flow__closing p {
   gap: 1.5rem;
   padding: 2rem;
   border: 1px solid rgba(246, 241, 232, 0.1);
-  background: rgba(24, 34, 53, 0.85) !important;
+  background: rgba(17, 23, 20, 0.85) !important;
   border-radius: var(--radius-card);
   backdrop-filter: blur(8px);
 }
@@ -413,9 +413,9 @@ html[lang='ar'] .solution-flow__closing p {
 }
 
 .voice-bubble--adapted {
-  background: rgba(184, 206, 216, 0.1);
-  border-color: rgba(184, 206, 216, 0.25);
-  box-shadow: 0 8px 32px rgba(24, 34, 53, 0.15);
+  background: rgba(185, 213, 202, 0.1);
+  border-color: rgba(185, 213, 202, 0.25);
+  box-shadow: 0 8px 32px rgba(17, 23, 20, 0.15);
 }
 
 .voice-bubble__text {

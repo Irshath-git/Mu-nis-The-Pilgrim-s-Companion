@@ -110,7 +110,7 @@ html[lang='ar'] .ar-panel__subtitle {
 }
 
 .ar-toggle-card input[type='checkbox']:checked + .ar-toggle-card__inner {
-  background: rgba(184, 206, 216, 0.1);
+  background: rgba(185, 213, 202, 0.1);
   border-color: var(--mist-blue);
 }
 
@@ -136,7 +136,7 @@ html[lang='ar'] .ar-panel__subtitle {
 
 /* ---- Huda Transcripts Box ---- */
 .ar-huda-box {
-  background: rgba(24, 34, 53, 0.6) !important;
+  background: rgba(17, 23, 20, 0.6) !important;
   border: 1px solid rgba(246, 241, 232, 0.08);
   padding: 1.25rem;
   display: flex;
@@ -208,7 +208,7 @@ html[lang='ar'] .ar-huda-box__title {
   height: 100%;
   border-radius: 28px;
   overflow: hidden;
-  background: #0f1520;
+  background: var(--near-black);
 }
 
 .ar-camera-feed {
@@ -225,43 +225,84 @@ html[lang='ar'] .ar-huda-box__title {
   overflow: hidden;
 }
 
-.ar-fallback-gradient {
+/* Real photograph standing in for the camera stream */
+.ar-fallback-photo {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, var(--midnight-navy) 0%, var(--night-indigo) 60%, var(--desert-sand) 100%);
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  object-fit: cover;
+  object-position: center 30%;
+  animation: ar-handheld 9s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-.ar-fallback-horizon {
-  position: absolute;
-  inset-inline: 0;
-  inset-block-start: 65%;
-  height: 2px;
-  background: rgba(184, 206, 216, 0.35);
-  box-shadow: 0 0 12px var(--mist-blue);
+/* Gentle handheld drift sells "live feed" */
+@keyframes ar-handheld {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0.001deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-0.6%, 0.4%, 0) rotate(-0.25deg) scale(1.015);
+  }
+  100% {
+    transform: translate3d(0.5%, -0.3%, 0) rotate(0.2deg) scale(1.03);
+  }
 }
 
-.ar-fallback-geometric {
+/* Emerald night grade + legibility scrim for HUD overlays */
+.ar-fallback-grade {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 50% 30%, rgba(246, 241, 232, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background:
+    linear-gradient(180deg, rgba(4, 12, 9, 0.55) 0%, rgba(0, 72, 58, 0.12) 30%, rgba(0, 72, 58, 0.1) 62%, rgba(4, 12, 9, 0.6) 100%),
+    radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0, 40, 31, 0.4) 100%);
 }
 
 .ar-fallback-content {
   position: absolute;
-  inset: 0;
+  inset-block-start: 44px;
+  inset-inline-start: 14px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: flex-start;
   z-index: 5;
 }
 
 .ar-fallback-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: var(--text-xs);
-  color: var(--moon-ivory);
-  opacity: 0.75;
+  font-weight: 600;
+  color: rgba(250, 249, 245, 0.92);
+  background: rgba(4, 12, 9, 0.45);
+  border: 1px solid rgba(250, 249, 245, 0.16);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.ar-fallback-live-dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 50%;
+  background: var(--luminous-emerald);
+  box-shadow: 0 0 8px var(--luminous-emerald);
+  animation: ar-live-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ar-live-pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ar-fallback-photo,
+  .ar-fallback-live-dot {
+    animation: none;
+  }
 }
 
 /* ---- HUD overlays ---- */
@@ -430,8 +471,8 @@ html[lang='ar'] .ar-huda-box__title {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  background: rgba(24, 34, 53, 0.85);
-  border: 1px solid rgba(184, 206, 216, 0.4);
+  background: rgba(17, 23, 20, 0.85);
+  border: 1px solid rgba(185, 213, 202, 0.4);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   color: var(--mist-blue);
@@ -479,7 +520,7 @@ html[lang='ar'] .ar-huda-box__title {
 .ar-marker-bubble {
   display: flex;
   flex-direction: column;
-  background: rgba(24, 34, 53, 0.85);
+  background: rgba(17, 23, 20, 0.85);
   border: 1px solid rgba(246, 241, 232, 0.12);
   padding: 0.35rem 0.55rem;
   border-radius: 8px;
@@ -506,8 +547,8 @@ html[lang='ar'] .ar-huda-box__title {
   position: absolute;
   inset-block-end: 52px;
   inset-inline: 12px;
-  background: rgba(24, 34, 53, 0.9);
-  border: 1px solid rgba(184, 206, 216, 0.3);
+  background: rgba(17, 23, 20, 0.9);
+  border: 1px solid rgba(185, 213, 202, 0.3);
   padding: 0.75rem 1rem;
   border-radius: 14px;
   backdrop-filter: blur(8px);
@@ -570,7 +611,7 @@ html[lang='ar'] .ar-instruction-card__title {
   align-items: center;
   gap: 0.45rem;
   background: var(--rose-clay);
-  border: 1px solid rgba(24, 34, 53, 0.15);
+  border: 1px solid rgba(17, 23, 20, 0.15);
   padding: 0.4rem 0.85rem;
   border-radius: 20px;
   color: var(--midnight-navy);
@@ -652,4 +693,41 @@ html[lang='ar'] .ar-instruction-card__title {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
+}
+
+/* ---- Gate 3 Specific Overlay Marker (Stitch Design) ---- */
+.ar-gate-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  animation: bounce-floating 2.2s infinite ease-in-out;
+}
+
+.ar-gate-circle {
+  width: 28px;
+  height: 28px;
+  background: var(--rose-clay);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--moon-ivory);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.8rem;
+  box-shadow: 0 0 10px rgba(200, 169, 81, 0.4);
+  border: 1px solid rgba(246, 241, 232, 0.5);
+  flex-shrink: 0;
+}
+
+.ar-gate-label {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--midnight-navy);
+  background: rgba(246, 241, 232, 0.9);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(17, 23, 20, 0.08);
 }

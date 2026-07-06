@@ -121,13 +121,13 @@ html[lang='ar'] .phone__screen {
 .ph-pill--critical {
   background: var(--critical-soft);
   color: var(--critical-text);
-  border-color: rgba(201, 141, 120, 0.3);
+  border-color: rgba(200, 169, 81, 0.3);
 }
 
 .ph-pill--emerald {
   background: var(--cloud-mist);
   color: var(--night-indigo);
-  border-color: rgba(36, 50, 74, 0.15);
+  border-color: rgba(17, 23, 20, 0.15);
 }
 
 /* ---- Cards ---- */
@@ -370,7 +370,7 @@ html[lang='ar'] .ph-mic {
   inline-size: 4px;
   block-size: 10px;
   border-radius: 999px;
-  background: var(--rose-clay);
+  background: var(--luminous-emerald);
 }
 
 .ph-wave--active .ph-wave__bar {
@@ -418,7 +418,7 @@ html[lang='ar'] .ph-mic {
 .ph-progress__fill {
   block-size: 100%;
   border-radius: 999px;
-  background: var(--rose-clay);
+  background: var(--primary-emerald);
   transition: inline-size var(--dur-slow) var(--ease-out);
 }
 
@@ -584,8 +584,8 @@ html[lang='ar'] .phone__huda-companion-bar {
 }
 
 .huda-companion-offline-badge {
-  background: rgba(217, 199, 168, 0.15);
-  border: 1px solid rgba(217, 199, 168, 0.3);
+  background: rgba(200, 169, 81, 0.15);
+  border: 1px solid rgba(200, 169, 81, 0.3);
   color: var(--desert-sand);
   padding: 1px 6px;
   border-radius: 4px;

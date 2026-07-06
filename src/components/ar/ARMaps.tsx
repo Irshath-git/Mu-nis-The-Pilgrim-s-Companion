@@ -10,7 +10,6 @@ import {
   Volume2,
   Accessibility,
   Info,
-  Smartphone,
   PhoneCall,
   MapPin,
   Clock,
@@ -278,14 +277,20 @@ export function ARMaps() {
                 {cameraActive ? (
                   <video ref={videoRef} autoPlay playsInline muted className="ar-camera-feed" />
                 ) : (
-                  /* Stylized Horizon Poster Fallback */
+                  /* Photographic simulated camera feed */
                   <div className="ar-camera-fallback">
-                    <div className="ar-fallback-gradient" />
-                    <div className="ar-fallback-horizon" />
-                    <div className="ar-fallback-geometric" />
+                    <img
+                      src="/media/ar/tawaf-night.jpg"
+                      alt=""
+                      className="ar-fallback-photo"
+                      loading="lazy"
+                      width={1920}
+                      height={1440}
+                    />
+                    <div className="ar-fallback-grade" />
                     <div className="ar-fallback-content">
-                      <Smartphone size={32} className="text-mist animate-bounce" />
                       <p className="ar-fallback-text">
+                        <span className="ar-fallback-live-dot" aria-hidden="true" />
                         {t({ en: 'Camera simulation active', ar: 'محاكاة الكاميرا نشطة' })}
                       </p>
                     </div>
@@ -330,12 +335,10 @@ export function ARMaps() {
 
                       {/* Distance Badge */}
                       <div className="ar-marker ar-marker--badge">
-                        <div className="ar-badge-inner">
-                          <MapPin size={12} className="text-rose" />
-                          <span>
-                            {simplifiedMode
-                              ? t({ en: 'Gate 3', ar: 'بوابة ٣' })
-                              : t({ en: '120m to Gate 3', ar: '١٢٠م للبوابة ٣' })}
+                        <div className="ar-gate-marker">
+                          <span className="ar-gate-circle">3</span>
+                          <span className="ar-gate-label">
+                            {lang === 'ar' ? 'بوابة ٣' : 'Gate 3'}
                           </span>
                         </div>
                       </div>

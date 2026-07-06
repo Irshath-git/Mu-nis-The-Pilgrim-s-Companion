@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import {
-  Volume2,
   Speech,
   CheckCircle2,
+  Eye,
+  Accessibility,
+  Play,
 } from 'lucide-react'
 import {
   accessibilitySection,
@@ -12,10 +14,11 @@ import {
 import { useLanguage } from '../../hooks/useLanguage'
 import { Section } from '../common/Section'
 import { Reveal } from '../common/Reveal'
+import { brand } from '../../data/translations'
 import './accessibility.css'
 
 export function AccessibilitySection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [activeProfileId, setActiveProfileId] = useState<string>('elderly')
 
   const activeProfile =
@@ -88,69 +91,100 @@ export function AccessibilitySection() {
                 className={`theater-screen ${
                   activeProfile.adaptedUi.highContrast ? 'theater-screen--hc' : ''
                 }`}
-                style={{ fontSize: activeProfile.adaptedUi.fontSize }}
               >
                 {/* Simulated App Header */}
-                <div className="theater-screen__header">
-                  <span className="theater-screen__brand">Mu'nis</span>
-                  <span className="theater-screen__badge">
-                    {t({ en: 'Accessibility Active', ar: 'التسهيل مفعل' })}
-                  </span>
-                </div>
+                <p className="theater-screen__brand-header">
+                  {lang === 'ar' ? brand.nameAr : brand.nameEn}
+                </p>
 
-                {/* Adapted Instruction Card */}
-                <div
-                  className={`theater-card ${
-                    activeProfile.adaptedUi.stepFreeHighlighted ? 'theater-card--highlighted' : ''
-                  }`}
-                >
-                  <span className="theater-card__label" style={{ fontSize: '0.8em' }}>
-                    {t({ en: 'Next Step Instruction', ar: 'توجيه الخطوة التالية' })}
-                  </span>
+                <h4 className="theater-screen__title">
+                  {t({ en: 'Accessibility Personalisation', ar: 'تخصيص سهولة الوصول' })}
+                </h4>
 
-                  <p
-                    className="theater-card__instruction"
-                    style={{
-                      fontSize: activeProfile.adaptedUi.titleSize,
-                      fontWeight: '700',
-                      lineHeight: '1.4',
-                    }}
-                  >
-                    {t(activeProfile.adaptedInstruction)}
-                  </p>
+                {/* Simulated Phone Screen Split Grid Layout */}
+                <div className="theater-split-grid">
+                  {/* Left Column: Select Profile inside screen */}
+                  <div className="theater-col-left">
+                    <span className="theater-heading">{t({ en: 'Select Profile', ar: 'اختر الملف' })}</span>
+                    
+                    <button
+                      className={`theater-profile-btn ${activeProfileId === 'elderly' ? 'theater-profile-btn--active' : ''}`}
+                      onClick={() => setActiveProfileId('elderly')}
+                    >
+                      <Speech size={15} />
+                      <span className="theater-profile-btn__label">{t({ en: 'Elderly Mode', ar: 'وضع كبار السن' })}</span>
+                    </button>
 
-                  <p
-                    className="theater-card__meta"
-                    style={{ fontSize: '0.8em', marginTop: '0.5em', opacity: 0.85 }}
-                  >
-                    {t(activeProfile.adaptedMeta)}
-                  </p>
-                </div>
+                    <button
+                      className={`theater-profile-btn ${activeProfileId === 'wheelchair' ? 'theater-profile-btn--active' : ''}`}
+                      onClick={() => setActiveProfileId('wheelchair')}
+                    >
+                      <Accessibility size={15} />
+                      <span className="theater-profile-btn__label">{t({ en: 'Wheelchair', ar: 'الكرسي المتحرك' })}</span>
+                    </button>
 
-                {/* Waveform visual for voice modes */}
-                {activeProfile.adaptedUi.voicePlaying && (
-                  <div className="theater-voice-bar">
-                    <Volume2 size={16} className="theater-voice-icon" aria-hidden="true" />
-                    <div className="theater-voice-wave" aria-hidden="true">
-                      <span className="voice-bar" />
-                      <span className="voice-bar" />
-                      <span className="voice-bar" />
-                      <span className="voice-bar" />
-                    </div>
-                    <span className="theater-voice-text" style={{ fontSize: '0.75em' }}>
-                      {t({ en: 'Huda speaking...', ar: 'هُدى تتحدث...' })}
-                    </span>
+                    <button
+                      className={`theater-profile-btn ${activeProfileId === 'visual' ? 'theater-profile-btn--active' : ''}`}
+                      onClick={() => setActiveProfileId('visual')}
+                    >
+                      <Eye size={15} />
+                      <span className="theater-profile-btn__label">{t({ en: 'Visual Help', ar: 'مساعد البصر' })}</span>
+                    </button>
                   </div>
-                )}
 
-                {/* Bottom navigation buttons */}
-                <div className="theater-actions">
-                  <button className="btn btn--primary btn--sm theater-btn">
-                    {t({ en: 'Guide Me', ar: 'أرشدني' })}
-                  </button>
-                  <button className="btn btn--secondary btn--sm theater-btn">
-                    {t({ en: 'Repeat', ar: 'أعد' })}
-                  </button>
+                  {/* Right Column: Preview inside screen */}
+                  <div className="theater-col-right">
+                    <span className="theater-heading">{t({ en: 'Preview:', ar: 'معاينة:' })}</span>
+                    
+                    <div className="theater-preview-pane">
+                      {/* Huda Avatar & Status */}
+                      <div className="theater-huda-avatar-wrap">
+                        <div className="huda-avatar-ripples">
+                          <div className="huda-avatar">
+                            <span className="huda-avatar-icon">🧕</span>
+                          </div>
+                        </div>
+                        <span className="huda-listening-text">{t({ en: 'Huda is listening...', ar: 'هُدى تستمع...' })}</span>
+                      </div>
+
+                      {/* Dynamic Adapted Instruction */}
+                      <p className="theater-preview-instruction" style={{ fontSize: activeProfile.adaptedUi.fontSize }}>
+                        {t(activeProfile.adaptedInstruction)}
+                      </p>
+
+                      {/* Small Map Card */}
+                      <div className="theater-mini-map-card">
+                        <svg viewBox="0 0 100 50" className="theater-mini-svg">
+                          <path
+                            d="M 15 40 C 35 35, 55 20, 85 15"
+                            fill="none"
+                            stroke="var(--rose-clay)"
+                            strokeWidth="3.5"
+                            strokeLinecap="round"
+                          />
+                          <circle cx="85" cy="15" r="4.5" fill="var(--night-indigo)" />
+                          <circle cx="15" cy="40" r="4.5" fill="var(--rose-clay)" />
+                        </svg>
+                        <span className="theater-mini-map-card__badge">
+                          {t(activeProfile.adaptedMeta)}
+                        </span>
+                      </div>
+
+                      {/* Play buttons */}
+                      <button className="theater-play-btn">
+                        <span>{t({ en: 'Listen to instruction', ar: 'استمع للتوجيه' })}</span>
+                        <Play size={10} fill="currentColor" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom App Nav Bar */}
+                <div className="theater-screen__bottom-nav">
+                  <span className="theater-nav-item">🏠</span>
+                  <span className="theater-nav-item">👥</span>
+                  <span className="theater-nav-item theater-nav-item--active">📍</span>
+                  <span className="theater-nav-item">👤</span>
                 </div>
               </div>
             </div>

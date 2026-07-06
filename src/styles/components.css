@@ -29,13 +29,42 @@
 }
 
 .btn--primary {
-  background: var(--emerald-700);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--luminous-emerald) -10%, var(--primary-emerald) 45%, var(--deep-emerald) 120%);
   color: var(--pure-white);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 10px 26px -12px rgba(0, 107, 82, 0.55);
+}
+
+/* Soft sheen that sweeps across on hover */
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform var(--dur-slow) var(--ease-out);
+  pointer-events: none;
 }
 
 .btn--primary:hover {
-  background: var(--emerald-800);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(135deg, var(--luminous-emerald) -20%, var(--primary-emerald) 55%, var(--deep-emerald) 130%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 14px 34px -12px rgba(0, 107, 82, 0.7);
+  transform: translateY(-1px);
+}
+
+.btn--primary:hover::after {
+  transform: translateX(120%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary::after {
+    display: none;
+  }
 }
 
 .btn--secondary {

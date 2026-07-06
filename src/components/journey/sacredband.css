@@ -1,0 +1,79 @@
+/* ============================================================
+   Sacred-context transition band: aerial tawaf timelapse
+   ============================================================ */
+
+.sacred-band {
+  position: relative;
+  overflow: hidden;
+  min-block-size: clamp(300px, 44vw, 540px);
+  display: grid;
+  align-items: center;
+  background: var(--near-black);
+  isolation: isolate;
+}
+
+.sacred-band__media {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  /* Harmonise the footage with the emerald palette */
+  filter: saturate(0.8) brightness(0.92);
+}
+
+.sacred-band__grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4, 12, 9, 0.62) 0%, rgba(0, 72, 58, 0.18) 35%, rgba(0, 72, 58, 0.18) 65%, rgba(4, 12, 9, 0.68) 100%),
+    radial-gradient(110% 110% at 50% 50%, transparent 45%, rgba(0, 40, 31, 0.5) 100%);
+}
+
+.sacred-band__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-block: clamp(3rem, 8vw, 5rem);
+}
+
+.sacred-band__line {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--warm-white);
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(4, 12, 9, 0.55);
+}
+
+html[lang='ar'] .sacred-band__line {
+  font-family: var(--font-arabic);
+  line-height: 1.45;
+}
+
+.sacred-band__sub {
+  margin-block-start: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--text-lead);
+  font-weight: 600;
+  color: var(--soft-gold);
+  text-shadow: 0 1px 14px rgba(4, 12, 9, 0.6);
+}
+
+html[lang='ar'] .sacred-band__sub {
+  font-family: var(--font-arabic);
+}
+
+/* Unobtrusive CC-BY attribution for the footage */
+.sacred-band__credit {
+  position: absolute;
+  inset-block-end: 10px;
+  inset-inline-end: 14px;
+  z-index: 1;
+  font-size: 0.7rem;
+  color: rgba(250, 249, 245, 0.62);
+  background: rgba(4, 12, 9, 0.35);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+}

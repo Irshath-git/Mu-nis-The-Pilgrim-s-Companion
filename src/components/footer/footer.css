@@ -7,7 +7,35 @@
   padding-block: clamp(4rem, 9vw, 7.5rem);
   text-align: center;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 100%, rgba(184, 206, 216, 0.15) 0%, var(--midnight-navy) 75%);
+  isolation: isolate;
+  background: var(--near-black);
+}
+
+/* Satellite photograph of Makkah under a deep-emerald duotone grade */
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.final-cta__bg-img {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(0.85) brightness(0.9) contrast(1.05);
+}
+
+.final-cta__bg-grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 40, 31, 0.9) 0%, rgba(0, 55, 43, 0.82) 45%, rgba(4, 14, 11, 0.94) 100%),
+    radial-gradient(60% 45% at 50% 34%, rgba(200, 169, 81, 0.2), transparent 70%);
+  background-blend-mode: normal;
 }
 
 .final-cta__inner {
@@ -182,7 +210,7 @@ html[lang='ar'] .footer__heading {
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1px solid rgba(201, 141, 120, 0.4);
+  border: 1px solid rgba(200, 169, 81, 0.4);
   border-radius: 50%;
   animation: pulse-ring 2.5s infinite;
 }
@@ -257,7 +285,7 @@ html[lang='ar'] .early-access-box__title {
 .early-access-form__input:focus {
   outline: none;
   border-color: var(--rose-clay);
-  box-shadow: 0 0 10px rgba(201, 141, 120, 0.2);
+  box-shadow: 0 0 10px rgba(200, 169, 81, 0.2);
 }
 
 .early-access-form__btn {
@@ -273,8 +301,8 @@ html[lang='ar'] .early-access-box__title {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem;
-  background: rgba(184, 206, 216, 0.10);
-  border: 1px solid rgba(184, 206, 216, 0.25);
+  background: rgba(185, 213, 202, 0.10);
+  border: 1px solid rgba(185, 213, 202, 0.25);
   border-radius: var(--radius-btn);
   color: var(--moon-ivory);
   font-size: var(--text-sm);

@@ -37,6 +37,24 @@ export function About() {
             )
           })}
         </div>
+
+        {/* Editorial Image Panel displaying Image B */}
+        <Reveal className="about__image-panel" delay={150}>
+          <div className="about__image-overlay" />
+          <img
+            src="/media/about/mecca-crowd.jpg"
+            alt={t({ en: 'Sacred Grand Mosque and pilgrims', ar: 'المسجد الحرام وضيوف الرحمن' })}
+            className="about__image"
+          />
+          <div className="about__image-quote">
+            <p>
+              {t({
+                en: '“And proclaim to the people the Pilgrimage...”',
+                ar: '«وَأَذِّنْ فِي النَّاسِ بِالْحَجِّ...»',
+              })}
+            </p>
+          </div>
+        </Reveal>
       </div>
     </Section>
   )

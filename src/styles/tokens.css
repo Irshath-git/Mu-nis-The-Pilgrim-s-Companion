@@ -1,64 +1,86 @@
 /* ============================================================
    Mu'nis design tokens — the single source of truth for colour,
    type, spacing, radius, elevation and motion.
+
+   Theme: NOOR EMERALD — spiritual reassurance, intelligent
+   guidance and a clear path throughout the sacred journey.
    ============================================================ */
 
 :root {
-  /* ---- Brand palette: SAKINAH HORIZON ---- */
-  --night-indigo: #24324A;
-  --midnight-navy: #182235;
-  --moon-ivory: #F6F1E8;
-  --desert-sand: #D9C7A8;
-  --mist-blue: #B8CED8;
-  --rose-clay: #C98D78;
-  --soft-slate: #697481;
-  --cloud-mist: #E8EEF0;
+  /* ---- Canonical Noor Emerald palette ---- */
+  --deep-emerald: #00483a;
+  --primary-emerald: #006b52;
+  --luminous-emerald: #00a67e;
+  --sacred-gold: #c8a951;
+  --soft-gold: #e5d39b;
+  --warm-white: #faf9f5;
+  --near-black: #111714;
+  --charcoal: #4f5a55;
+  --mist-sage: #eaf2ee;
 
+  /* ---- Supporting surfaces ---- */
+  --emerald-surface: #ddece6;
+  --emerald-border: #b9d5ca;
+  --warm-surface: #f3f0e8;
   --pure-white: #ffffff;
-  --near-black: var(--midnight-navy);
-  --warm-white: var(--moon-ivory);
 
   /* ---- Derived theme defaults ---- */
-  --text-muted: var(--soft-slate);
-  --text-faint: var(--soft-slate);
-  --surface-soft: var(--cloud-mist);
-  --border-soft: rgba(36, 50, 74, 0.12); /* base on night-indigo */
+  --text-muted: var(--charcoal);
+  --text-faint: #6b746f;
+  --surface-soft: var(--mist-sage);
+  --border-soft: rgba(17, 23, 20, 0.12);
 
   /* ---- Functional states (never colour-only) ---- */
-  --warning: #c98320;
+  --warning: #b97921; /* --warning-amber */
   --warning-text: #8a5410;
   --warning-soft: #fdf3e4;
-  --critical: var(--rose-clay);
-  --critical-text: #8c422a;
-  --critical-soft: #fbf5f2;
-  --success: #2e624c;
-  --success-text: #1d4634;
-  --success-soft: #eaf1ed;
+  --critical: #a63d40; /* --critical-red */
+  --critical-text: #8c2f31;
+  --critical-soft: #fbf1f1;
+  --success: var(--primary-emerald);
+  --success-text: #04503d;
+  --success-soft: var(--emerald-surface);
 
-  /* ---- Derived surfaces ---- */
-  --emerald-tint: var(--cloud-mist);
-  --gold-tint: rgba(217, 199, 168, 0.15); /* desert sand tint */
-  --on-dark-muted: var(--mist-blue);
-  --on-dark-border: rgba(246, 241, 232, 0.16);
+  /* ---- Derived surfaces / on-dark ---- */
+  --emerald-tint: var(--emerald-surface);
+  --gold-tint: rgba(200, 169, 81, 0.16);
+  --on-dark-muted: var(--emerald-border);
+  --on-dark-border: rgba(250, 249, 245, 0.16);
 
-  /* ---- Legacy color mapping fallbacks to prevent broken elements ---- */
-  --emerald-950: var(--midnight-navy);
-  --emerald-900: var(--night-indigo);
-  --emerald-800: var(--night-indigo);
-  --emerald-700: var(--night-indigo);
-  --emerald-500: var(--mist-blue);
+  /* ---- Legacy semantic mapping → Noor Emerald ---- */
+  /* Emerald scale */
+  --emerald-950: #00332a;
+  --emerald-900: var(--deep-emerald);
+  --emerald-800: #005a46;
+  --emerald-700: var(--primary-emerald);
+  --emerald-500: var(--luminous-emerald);
 
-  --gold-700: var(--rose-clay);
-  --gold-600: var(--desert-sand);
-  --gold-500: var(--desert-sand);
-  --gold-200: var(--moon-ivory);
+  /* Gold scale */
+  --gold-700: #a8863c;
+  --gold-600: var(--sacred-gold);
+  --gold-500: var(--sacred-gold);
+  --gold-200: var(--soft-gold);
 
-  --dawn-ivory: var(--moon-ivory);
-  --dawn-sand: var(--desert-sand);
-  --dawn-sage: var(--cloud-mist);
-  --dawn-emerald: var(--midnight-navy);
-  --dawn-gold: var(--rose-clay);
-  --dawn-gold-muted: var(--desert-sand);
+  /* Dawn set (older component references) */
+  --dawn-ivory: var(--warm-white);
+  --dawn-sand: var(--soft-gold);
+  --dawn-sage: var(--mist-sage);
+  --dawn-emerald: var(--deep-emerald);
+  --dawn-gold: var(--sacred-gold);
+  --dawn-gold-muted: var(--soft-gold);
+
+  /* ---- Sakinah-era names remapped to Noor Emerald ----
+     These names are still referenced throughout the component
+     stylesheets; they now resolve to emerald/gold/neutral values
+     so the whole site themes from this one layer. */
+  --midnight-navy: var(--near-black);
+  --night-indigo: var(--deep-emerald);
+  --moon-ivory: var(--warm-white);
+  --desert-sand: var(--sacred-gold);
+  --rose-clay: var(--sacred-gold);
+  --mist-blue: var(--emerald-border);
+  --soft-slate: var(--charcoal);
+  --cloud-mist: var(--mist-sage);
 
   /* ---- Typography ---- */
   --font-heading: 'Manrope Variable', 'Noto Kufi Arabic', 'Segoe UI', system-ui, sans-serif;
@@ -99,7 +121,7 @@
     0 36px 80px -28px rgba(0, 55, 46, 0.35);
 
   /* ---- Focus ---- */
-  --focus-ring: var(--emerald-700);
+  --focus-ring: var(--primary-emerald);
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

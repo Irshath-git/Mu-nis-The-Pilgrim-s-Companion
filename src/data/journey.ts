@@ -128,3 +128,23 @@ export const journeyStages: JourneyStage[] = [
     ],
   },
 ]
+
+/* Full-width sacred-context transition band (video) */
+export const sacredBand = {
+  ariaLabel: {
+    en: 'The sacred journey in motion',
+    ar: 'الرحلة المقدسة في حركتها',
+  },
+  line: {
+    en: 'One sacred centre. Millions of journeys.',
+    ar: 'مركز واحد مقدس. وملايين الرحلات.',
+  },
+  sub: {
+    en: "Mu'nis walks beside each one of them.",
+    ar: 'ومُؤْنِس يرافق كل رحلة منها.',
+  },
+  credit: {
+    en: 'Timelapse: Masjid al-Ḥarām — Masajida Allah, CC BY 3.0',
+    ar: 'تصوير متسارع: المسجد الحرام — Masajida Allah، رخصة CC BY 3.0',
+  },
+} as const

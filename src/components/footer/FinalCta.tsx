@@ -23,6 +23,19 @@ export function FinalCta() {
 
   return (
     <section className="final-cta section--dark on-dark" aria-labelledby="final-cta-heading">
+      {/* Mecca from above (NASA, public domain) under an emerald grade —
+          every path in the city leads to the glowing centre. */}
+      <div className="final-cta__bg" aria-hidden="true">
+        <img
+          src="/media/journey/mecca-aerial.jpg"
+          alt=""
+          className="final-cta__bg-img"
+          loading="lazy"
+          width={1920}
+          height={2880}
+        />
+        <div className="final-cta__bg-grade" />
+      </div>
       <div className="pattern-overlay" aria-hidden="true" />
       <div className="container final-cta__inner">
         <Reveal>
