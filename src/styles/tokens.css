@@ -1,0 +1,97 @@
+/* ============================================================
+   MUNIS design tokens — the single source of truth for colour,
+   type, spacing, radius, elevation and motion.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette ---- */
+  --emerald-950: #00372e;
+  --emerald-900: #00483a;
+  --emerald-800: #005a47;
+  --emerald-700: #006b52;
+  --emerald-500: #00a67e;
+
+  --gold-600: #b8963e;
+  --gold-500: #c8a951;
+  --gold-200: #e5d39b;
+  /* Darkened gold for small text on light backgrounds (≥4.5:1) */
+  --gold-700: #7a6228;
+
+  --warm-white: #faf9f5;
+  --pure-white: #ffffff;
+  --near-black: #111714;
+  /* Spec muted (#68736E) is ~4.4:1 on soft surfaces; darkened for AA */
+  --text-muted: #5c6763;
+  --text-faint: #68736e;
+  --surface-soft: #f2f5f1;
+  --border-soft: #dde6e1;
+
+  /* ---- Functional states (never colour-only) ---- */
+  --warning: #c98320;
+  --warning-text: #8a5410;
+  --warning-soft: #fdf3e4;
+  --critical: #b83a3a;
+  --critical-text: #a53434;
+  --critical-soft: #fbeeee;
+  --success: #21855b;
+  --success-text: #1b6b49;
+  --success-soft: #e9f5ef;
+
+  /* ---- Derived surfaces ---- */
+  --emerald-tint: #e7f2ee;
+  --gold-tint: #faf5e7;
+  --on-dark-muted: #b8cbc4;
+  --on-dark-border: rgba(250, 249, 245, 0.16);
+
+  /* ---- Typography ---- */
+  --font-heading: 'Manrope Variable', 'Noto Kufi Arabic', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Noto Kufi Arabic', 'Segoe UI', system-ui, sans-serif;
+  --font-arabic: 'Noto Kufi Arabic', 'Segoe UI', system-ui, sans-serif;
+
+  --text-hero: clamp(2.7rem, 1.5rem + 4.4vw, 5.1rem);
+  --text-h2: clamp(2rem, 1.35rem + 2.4vw, 3.4rem);
+  --text-h3: clamp(1.35rem, 1.2rem + 0.6vw, 1.7rem);
+  --text-h4: 1.125rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-body: 1rem;
+  --text-body-lg: 1.0625rem;
+  --text-sm: 0.9rem;
+  --text-xs: 0.8125rem;
+
+  /* ---- Layout ---- */
+  --container-max: 1240px;
+  --container-pad: clamp(1.25rem, 4.5vw, 2.75rem);
+  --section-pad: clamp(3.25rem, 2rem + 4.6vw, 7rem);
+  --header-height: 72px;
+
+  /* ---- Radius ---- */
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --shadow-soft:
+    0 1px 2px rgba(17, 23, 20, 0.04),
+    0 10px 28px -14px rgba(0, 55, 46, 0.12);
+  --shadow-lift:
+    0 2px 4px rgba(17, 23, 20, 0.05),
+    0 18px 44px -18px rgba(0, 55, 46, 0.2);
+  --shadow-phone:
+    0 4px 10px rgba(17, 23, 20, 0.08),
+    0 36px 80px -28px rgba(0, 55, 46, 0.35);
+
+  /* ---- Focus ---- */
+  --focus-ring: var(--emerald-700);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 300ms;
+  --dur-slow: 560ms;
+
+  /* ---- Z ---- */
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-skip: 300;
+}

@@ -1,0 +1,132 @@
+/* ============================================================
+   Base: reset, typography, focus, RTL + reduced-motion behaviour
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--near-black);
+  background-color: var(--warm-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+
+/* Arabic mode: switch families, drop Latin letter-spacing, breathe more */
+html[lang='ar'] body {
+  font-family: var(--font-arabic);
+  line-height: 1.9;
+}
+
+html[lang='ar'] :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* Arabic snippets inside the English page (brand name, tagline) */
+[lang='ar'] {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--near-black);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+a {
+  color: var(--emerald-700);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--emerald-700);
+  color: var(--pure-white);
+}
+
+/* ---- Focus: always visible, adapts to dark surfaces ---- */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.on-dark,
+.on-dark * {
+  --focus-ring: var(--gold-200);
+}
+
+/* ---- Sections anchor below the sticky header ---- */
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+/* ---- Reduced motion: kill animation + smooth scroll ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

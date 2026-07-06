@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="munis-favicon-title">
+  <title id="munis-favicon-title">MUNIS</title>
+  <!-- Simplified single-arc treatment so the mark stays identifiable at 16px -->
+  <path d="M 28.18 12.33 A 22 22 0 1 0 52.67 41.52" fill="none" stroke="#00A67E" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="44.62" cy="15.98" r="6.5" fill="#C8A951"/>
+</svg>
