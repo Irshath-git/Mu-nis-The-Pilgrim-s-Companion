@@ -1,0 +1,128 @@
+.impact__outcomes-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--gold-700);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-block-end: 0.9rem;
+}
+
+html[lang='ar'] .impact__outcomes-label {
+  letter-spacing: 0;
+}
+
+.impact__outcomes {
+  list-style: none;
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.impact__outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.2rem;
+}
+
+.impact__outcome p {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.impact__outcome-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 42px;
+  block-size: 42px;
+  border-radius: 12px;
+  background: var(--emerald-tint);
+  color: var(--emerald-800);
+}
+
+/* ---- Pilot metrics panel ---- */
+.impact__metrics {
+  background: var(--surface-soft);
+}
+
+.impact__metrics-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-block-end: 1.2rem;
+}
+
+.impact__metrics-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--text-h4);
+}
+
+.impact__metrics-head h3 svg {
+  color: var(--emerald-700);
+}
+
+.impact__metrics-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.impact__metrics-list li {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: var(--pure-white);
+  border: 1px dashed var(--border-soft);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.impact__closing {
+  margin-block-start: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.impact__closing p {
+  font-family: var(--font-heading);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  color: var(--emerald-900);
+  max-width: 56ch;
+}
+
+html[lang='ar'] .impact__closing p {
+  font-family: var(--font-arabic);
+}
+
+@media (max-width: 1100px) {
+  .impact__outcomes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact__metrics-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .impact__outcomes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .impact__metrics-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

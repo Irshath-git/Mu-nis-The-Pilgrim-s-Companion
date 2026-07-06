@@ -1,0 +1,71 @@
+.journey__tab-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 20px;
+  block-size: 20px;
+  border-radius: 50%;
+  background: var(--emerald-tint);
+  color: var(--emerald-800);
+  font-size: 0.68rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.tabs__tab[aria-selected='true'] .journey__tab-step {
+  background: rgba(250, 249, 245, 0.2);
+  color: var(--pure-white);
+}
+
+.journey__acc-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--emerald-900);
+}
+
+.journey__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.journey__item {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-soft);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--near-black);
+  position: relative;
+  padding-inline-start: 1.9rem;
+}
+
+.journey__item::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0.85rem;
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 50%;
+  background: var(--gold-500);
+}
+
+@media (max-width: 1020px) {
+  .journey__items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .journey__items {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

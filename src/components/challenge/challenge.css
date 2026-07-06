@@ -1,0 +1,32 @@
+.challenge__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.challenge__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.challenge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 48px;
+  block-size: 48px;
+  border-radius: 14px;
+  background: var(--emerald-tint);
+  color: var(--emerald-800);
+}
+
+.challenge__title {
+  font-size: var(--text-h3);
+}
+
+.challenge__body {
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 46ch;
+}
