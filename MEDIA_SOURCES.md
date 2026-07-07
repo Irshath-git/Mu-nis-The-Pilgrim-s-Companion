@@ -9,7 +9,7 @@ downscales, trims, re-encodes) were produced locally for web performance.
 | --- | --- | --- | --- |
 | `public/media/hero/lone-pilgrim.jpg` | Supplied with the project brief (Image A) | — | Project-supplied |
 | `public/media/about/mecca-crowd.jpg` | Supplied with the project brief (Image B) | — | Project-supplied |
-| `public/media/ar/tawaf-night.jpg` | [Wikimedia Commons — "Masjid al-Haram, Tawaf 20092012 1130PM"](https://commons.wikimedia.org/wiki/File:Masjid_al-Haram,_Tawaf_20092012_1130PM_(8008466944).jpg) | Basheer Olakara | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| `public/media/ar/pilgrim-path.png` | Supplied by the project owner (illustrative render of a pilgrim walking a mosque walkway) | — | Project-supplied |
 | `public/media/journey/mecca-aerial.jpg` | [Wikimedia Commons — "Mecca From Above (153954)"](https://commons.wikimedia.org/wiki/File:Mecca_From_Above_(153954).jpg) | NASA / ISS Expedition 69 (astronaut photograph ISS069-E-39069) | Public domain |
 
 ## Video
@@ -28,7 +28,7 @@ the full provenance.
 
 - **Hero** — `lone-pilgrim.jpg` (preloaded; the only above-the-fold image).
 - **About Us** — `mecca-crowd.jpg` (lazy).
-- **AR Maps** — `tawaf-night.jpg` as the simulated camera feed (lazy).
+- **AR Maps** — `pilgrim-path.png` as the simulated camera feed (lazy).
 - **Sacred band (before Across the Journey)** — `tawaf-loop` video, muted /
   looped / `preload="none"`, plays only while visible; falls back to
   `tawaf-poster.jpg` under `prefers-reduced-motion` or Save-Data.

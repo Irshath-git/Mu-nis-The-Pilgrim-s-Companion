@@ -1,5 +1,4 @@
 import { footer } from '../../data/footer'
-import { ui } from '../../data/translations'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MunisLockup } from '../brand/MunisLockup'
 import { LanguageToggle } from '../navigation/LanguageToggle'
@@ -28,12 +27,6 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-
-          <div className="footer__status">
-            <h2 className="footer__heading">{t(footer.statusHeading)}</h2>
-            <p className="footer__status-line">{t(ui.competitionTrack)}</p>
-            <span className="badge badge--outline-dark">{t(ui.prototypeStatus)}</span>
-          </div>
         </div>
 
         <p className="footer__disclaimer">{t(footer.disclaimer)}</p>

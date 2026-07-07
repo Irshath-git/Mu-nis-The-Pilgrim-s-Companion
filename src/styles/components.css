@@ -138,12 +138,6 @@
   border-color: var(--border-soft);
 }
 
-.badge--outline-dark {
-  background: rgba(250, 249, 245, 0.08);
-  color: var(--gold-200);
-  border-color: rgba(229, 211, 155, 0.35);
-}
-
 /* ---- Small capability chip (hero row, phone UI) ---- */
 .chip {
   display: inline-flex;

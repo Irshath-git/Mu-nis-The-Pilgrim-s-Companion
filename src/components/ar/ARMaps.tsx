@@ -280,12 +280,12 @@ export function ARMaps() {
                   /* Photographic simulated camera feed */
                   <div className="ar-camera-fallback">
                     <img
-                      src="/media/ar/street-ar-view.png"
-                      alt={t({ en: 'Pedestrian walkway with a person walking down the path', ar: 'ممر مشاة مع شخص يمشي في المسار' })}
+                      src="/media/ar/pilgrim-path.png"
+                      alt={t({ en: 'A pilgrim walking along a mosque walkway', ar: 'حاج يمشي عبر ممر المسجد' })}
                       className="ar-fallback-photo"
                       loading="lazy"
-                      width={1920}
-                      height={1440}
+                      width={1024}
+                      height={1024}
                     />
                     <div className="ar-fallback-grade" />
                     <div className="ar-fallback-content">

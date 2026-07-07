@@ -6,7 +6,7 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from 'lucide-react'
-import { hero, heroStatus } from '../../data/hero'
+import { hero } from '../../data/hero'
 import { ui } from '../../data/translations'
 import { useLanguage } from '../../hooks/useLanguage'
 import { HeroPhone } from './HeroPhone'
@@ -64,16 +64,6 @@ export function Hero() {
             <span className="hero__badge-dot" aria-hidden="true" />
             {t(hero.badge)}
           </p>
-          <div className="hero__status-bar">
-            <span className="hero__status-item">
-              <span className="hero__status-dot hero__status-dot--pulse" aria-hidden="true" />
-              {t(heroStatus.hudaStatus)}
-            </span>
-            <span className="hero__status-item">
-              <span className="hero__status-dot" aria-hidden="true" />
-              {t(heroStatus.modelStatus)}
-            </span>
-          </div>
           <h1 id="hero-heading" className="hero__headline">
             {t(hero.headline)}
           </h1>
