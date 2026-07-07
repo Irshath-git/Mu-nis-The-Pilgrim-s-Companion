@@ -18,8 +18,12 @@ export function useFocusTrap(ref: RefObject<HTMLElement | null>, active: boolean
         (el) => el.offsetParent !== null || el === document.activeElement,
       )
 
-    const initial = focusables()
-    if (initial.length > 0) initial[0].focus()
+    // Defer the initial focus one frame: at effect time the drawer may still
+    // be transitioning from visibility:hidden, and focus() would silently fail.
+    const raf = requestAnimationFrame(() => {
+      const initial = focusables()
+      if (initial.length > 0) initial[0].focus({ preventScroll: true })
+    })
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key !== 'Tab') return
@@ -38,6 +42,7 @@ export function useFocusTrap(ref: RefObject<HTMLElement | null>, active: boolean
 
     container.addEventListener('keydown', onKeyDown)
     return () => {
+      cancelAnimationFrame(raf)
       container.removeEventListener('keydown', onKeyDown)
       previouslyFocused?.focus?.()
     }

@@ -25,7 +25,13 @@ export const heroPhone = {
   offlineReady: { en: 'Offline essentials saved', ar: 'الأساسيات محفوظة دون اتصال' },
   stageLabel: { en: 'Current stage', ar: 'المرحلة الحالية' },
   stageValue: { en: 'Ritual journey · Mina', ar: 'رحلة المناسك · منى' },
-  listening: { en: `Huda is listening...`, ar: 'هُدى تستمع...' },
+  /* Huda's cycling listening-state labels (visual demonstration only) */
+  hudaStates: {
+    idle: { en: 'Huda is with you', ar: 'هُدى معك' },
+    listening: { en: 'Huda is listening...', ar: 'هُدى تستمع...' },
+    understanding: { en: 'Huda is understanding...', ar: 'هُدى تستوعب...' },
+    ready: { en: 'Guidance ready', ar: 'الإرشاد جاهز' },
+  },
   heatLabel: { en: 'Heat', ar: 'الحرارة' },
   heatValue: { en: 'High — rest advised', ar: 'مرتفعة — يُنصح بالراحة' },
   crowdLabel: { en: 'Crowd', ar: 'الازدحام' },
@@ -42,9 +48,4 @@ export const heroPhone = {
     en: 'Simplified map showing a calm accessible route toward the destination point',
     ar: 'خريطة مبسطة تعرض مسارًا ميسّرًا وهادئًا نحو نقطة الوجهة',
   },
-} as const
-
-export const heroStatus = {
-  hudaStatus: { en: 'Voice: Huda Active', ar: 'الصوت: هُدى نشطة' },
-  modelStatus: { en: 'Offline LLM: Synced', ar: 'الذكاء الاصطناعي المحلي: متزامن' },
 } as const

@@ -49,7 +49,6 @@ export const ui = {
     en: 'Hajj & Umrah Experience Technologies',
     ar: 'تقنيات تجربة الحج والعمرة',
   },
-  prototypeStatus: { en: 'Prototype stage', ar: 'مرحلة النموذج الأولي' },
   maturity: {
     prototype: { en: 'Prototype', ar: 'نموذج أولي' },
     pilot: { en: 'Planned Pilot', ar: 'تجربة تشغيلية مخطَّطة' },

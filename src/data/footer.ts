@@ -51,10 +51,9 @@ export const footer = {
     { id: 'accessibility', label: { en: 'Accessibility', ar: 'إمكانية الوصول' } },
     { id: 'prototype', label: { en: 'Experience Prototype', ar: 'جرِّب النموذج' } },
   ] satisfies { id: string; label: Bilingual }[],
-  statusHeading: { en: 'Project status', ar: 'حالة المشروع' },
   disclaimer: {
-    en: "Mu'nis is currently a prototype. Live operational, routing, AR, crowd and assistance capabilities require testing, validation and authorisation.",
-    ar: 'مُؤْنِس حالياً نموذج أولي. تتطلب القدرات التشغيلية والمسارات الحية والواقع المعزز وإدارة الحشود وطلب المساعدة اختباراً وتحققاً واعتماداً رسمياً.',
+    en: "Mu'nis is currently a prototype. Live routing, AR, crowd and assistance capabilities require testing, validation and authorised integration.",
+    ar: 'مُؤْنِس حالياً نموذج أولي. تتطلب قدرات التوجيه الحي والواقع المعزز وإدارة الحشود والمساعدة اختباراً وتحققاً وتكاملاً معتمداً.',
   },
   copyright: {
     en: "Mu'nis prototype — built for competition demonstration.",

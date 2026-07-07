@@ -1,11 +1,31 @@
-import { Bell, Flame, Users } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Bell, Check, Flame, Mic, Users } from 'lucide-react'
 import { PhoneFrame } from '../common/PhoneFrame'
 import { brand } from '../../data/translations'
 import { heroPhone } from '../../data/hero'
 import { useLanguage } from '../../hooks/useLanguage'
 
+type HudaState = 'idle' | 'listening' | 'understanding' | 'ready'
+
+/** Demonstration cycle: idle → listening → understanding → ready → idle */
+const HUDA_CYCLE: Record<HudaState, { next: HudaState; ms: number }> = {
+  idle: { next: 'listening', ms: 3200 },
+  listening: { next: 'understanding', ms: 5000 },
+  understanding: { next: 'ready', ms: 2800 },
+  ready: { next: 'idle', ms: 2600 },
+}
+
 export function HeroPhone() {
   const { t, lang } = useLanguage()
+  const [hudaState, setHudaState] = useState<HudaState>('listening')
+
+  useEffect(() => {
+    const id = window.setTimeout(
+      () => setHudaState(HUDA_CYCLE[hudaState].next),
+      HUDA_CYCLE[hudaState].ms,
+    )
+    return () => window.clearTimeout(id)
+  }, [hudaState])
 
   return (
     <div className="hero-phone-container" style={{ position: 'relative' }}>
@@ -21,20 +41,26 @@ export function HeroPhone() {
             </span>
           </div>
 
-          {/* Central Huda Assistant View */}
-          <div className="hero-phone__assistant-wrap">
+          {/* Central Huda Assistant View — cycles through listening states */}
+          <div className="hero-phone__assistant-wrap" data-huda-state={hudaState}>
             <div className="hero-phone__huda-avatar">
-              <span className="avatar-face">🧕</span>
+              <Mic size={20} className="huda-avatar__icon" aria-hidden="true" />
             </div>
-            <p className="hero-phone__status-text">{t(heroPhone.listening)}</p>
+            <p className="hero-phone__status-text">
+              <span className="huda-state-dot" aria-hidden="true">
+                {hudaState === 'ready' && <Check size={9} strokeWidth={3.5} aria-hidden="true" />}
+              </span>
+              {t(heroPhone.hudaStates[hudaState])}
+            </p>
 
-            {/* Premium Waveform */}
+            {/* Dynamic waveform + understanding progress */}
             <div className="hero-phone__wave-wrapper">
               <div className="ph-wave ph-wave--active ph-wave--premium" aria-hidden="true">
                 {Array.from({ length: 15 }).map((_, i) => (
                   <span key={i} className="ph-wave__bar" />
                 ))}
               </div>
+              <span className="huda-progress" aria-hidden="true" />
             </div>
           </div>
 

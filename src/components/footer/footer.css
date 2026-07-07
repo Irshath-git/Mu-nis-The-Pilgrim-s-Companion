@@ -82,8 +82,8 @@
 
 .footer__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
   padding-block-end: 2.25rem;
   border-block-end: 1px solid rgba(246, 241, 232, 0.12);
 }
@@ -156,12 +156,6 @@ html[lang='ar'] .footer__heading {
   color: var(--desert-sand);
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-
-.footer__status-line {
-  font-size: var(--text-sm);
-  color: var(--mist-blue);
-  margin-block-end: 0.9rem;
 }
 
 .footer__disclaimer {

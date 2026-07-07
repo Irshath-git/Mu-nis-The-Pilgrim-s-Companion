@@ -155,62 +155,6 @@ html[lang='ar'] .hero__bg-image {
   }
 }
 
-.hero__status-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-block-end: 1.2rem;
-}
-
-.hero__status-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-heading);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  color: rgba(250, 249, 245, 0.92);
-  background: rgba(250, 249, 245, 0.07);
-  padding: 0.3rem 0.7rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(250, 249, 245, 0.16);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.hero__status-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--luminous-emerald);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.hero__status-dot--pulse {
-  position: relative;
-  background-color: var(--luminous-emerald);
-  box-shadow: 0 0 8px var(--luminous-emerald);
-}
-
-.hero__status-dot--pulse::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid var(--luminous-emerald);
-  animation: hero-dot-pulse 1.8s infinite ease-out;
-}
-
-@keyframes hero-dot-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2.8);
-    opacity: 0;
-  }
-}
 
 .hero__inner {
   position: relative;
@@ -233,7 +177,7 @@ html[lang='ar'] .hero__bg-image {
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--night-indigo);
-  margin-block-end: 1.4rem;
+  margin-block-end: 1.1rem;
 }
 
 html[lang='ar'] .hero__badge {
@@ -535,6 +479,24 @@ html[lang='ar'] .hero__headline {
   display: inline-block;
   position: relative;
   margin-inline: auto;
+  /* The whole device levitates gently — premium, alive */
+  animation: hero-phone-float 7s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-phone-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone-container {
+    animation: none;
+  }
 }
 
 .hero-phone-badge {
@@ -652,16 +614,22 @@ html[lang='ar'] .hero__headline {
   position: relative;
   width: 52px;
   height: 52px;
-  background: var(--night-indigo);
-  border: 3px solid var(--desert-sand);
+  background: radial-gradient(120% 120% at 30% 25%, var(--luminous-emerald) -30%, var(--primary-emerald) 45%, var(--deep-emerald) 100%);
+  border: 2px solid var(--soft-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(17, 23, 20, 0.15);
-  font-size: 1.6rem;
-  line-height: 1;
+  /* Layered static halo — depth survives reduced-motion */
+  box-shadow:
+    0 0 0 5px rgba(0, 166, 126, 0.12),
+    0 0 0 11px rgba(0, 166, 126, 0.05),
+    0 4px 15px rgba(17, 23, 20, 0.18);
   z-index: 1;
+}
+
+.huda-avatar__icon {
+  color: var(--warm-white);
 }
 
 /* Glowing ripple effects */
@@ -700,18 +668,105 @@ html[lang='ar'] .hero__headline {
 }
 
 .hero-phone__status-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--soft-slate);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--near-black);
   margin: 0;
+  transition: color var(--dur-fast) ease;
+}
+
+/* State dot beside the label: emerald while active, gold when ready */
+.huda-state-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 50%;
+  background: var(--luminous-emerald);
+  color: var(--pure-white);
+  flex-shrink: 0;
+  transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out);
+}
+
+[data-huda-state='idle'] .huda-state-dot {
+  background: var(--emerald-border);
+}
+
+[data-huda-state='listening'] .huda-state-dot {
+  background: var(--luminous-emerald);
+  box-shadow: 0 0 8px rgba(0, 166, 126, 0.55);
+  animation: huda-dot-breathe 1.6s ease-in-out infinite;
+}
+
+[data-huda-state='understanding'] .huda-state-dot {
+  background: var(--primary-emerald);
+  animation: huda-dot-breathe 0.9s ease-in-out infinite;
+}
+
+[data-huda-state='ready'] .huda-state-dot {
+  background: var(--sacred-gold);
+  inline-size: 14px;
+  block-size: 14px;
+  box-shadow: 0 0 10px rgba(200, 169, 81, 0.55);
+}
+
+@keyframes huda-dot-breathe {
+  50% {
+    opacity: 0.45;
+  }
 }
 
 .hero-phone__wave-wrapper {
+  position: relative;
   width: 100%;
   margin-block-start: 0.5rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+/* Thin progress line shown while Huda is understanding */
+.huda-progress {
+  display: none;
+  inline-size: 56px;
+  block-size: 3px;
+  margin-block-start: 0.35rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-surface);
+  overflow: hidden;
+  position: relative;
+}
+
+.huda-progress::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--luminous-emerald), var(--sacred-gold));
+  transform: translateX(-100%);
+  animation: huda-progress-fill 2.6s ease-in-out forwards;
+}
+
+html[dir='rtl'] .huda-progress::after {
+  transform: translateX(100%);
+}
+
+[data-huda-state='understanding'] .huda-progress {
+  display: block;
+}
+
+@keyframes huda-progress-fill {
+  to {
+    transform: translateX(0);
+  }
 }
 
 .ph-wave--premium {
@@ -723,7 +778,84 @@ html[lang='ar'] .hero__headline {
   width: 3px;
   border-radius: 999px;
   background: linear-gradient(to top, var(--primary-emerald) 0%, var(--luminous-emerald) 100%);
-  animation: ph-wave-bounce 1s ease-in-out infinite alternate;
+  animation: huda-wave-listen 1s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Smooth, low-amplitude speech motion (contained within the wrapper) */
+@keyframes huda-wave-listen {
+  from {
+    transform: scaleY(0.85);
+  }
+  to {
+    transform: scaleY(1.75);
+  }
+}
+
+/* State: idle — barely-moving calm wave */
+[data-huda-state='idle'] .ph-wave--premium .ph-wave__bar {
+  animation-name: huda-wave-idle;
+  opacity: 0.75;
+}
+
+@keyframes huda-wave-idle {
+  from {
+    transform: scaleY(0.9);
+  }
+  to {
+    transform: scaleY(1.18);
+  }
+}
+
+/* States: understanding / ready — the wave settles and holds */
+[data-huda-state='understanding'] .ph-wave--premium .ph-wave__bar,
+[data-huda-state='ready'] .ph-wave--premium .ph-wave__bar {
+  animation-name: huda-wave-settle;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes huda-wave-settle {
+  to {
+    transform: scaleY(0.5);
+    opacity: 0.55;
+  }
+}
+
+/* Avatar ripples follow the state: calm when idle, off once heard */
+[data-huda-state='idle'] .hero-phone__huda-avatar::before,
+[data-huda-state='idle'] .hero-phone__huda-avatar::after {
+  animation-duration: 5.5s;
+}
+
+[data-huda-state='understanding'] .hero-phone__huda-avatar::before,
+[data-huda-state='understanding'] .hero-phone__huda-avatar::after,
+[data-huda-state='ready'] .hero-phone__huda-avatar::before,
+[data-huda-state='ready'] .hero-phone__huda-avatar::after {
+  animation: none;
+  opacity: 0;
+}
+
+/* Reduced motion: static listening graphic, all states still readable */
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone__assistant-wrap,
+  .hero-phone__huda-avatar::before,
+  .hero-phone__huda-avatar::after,
+  .huda-state-dot,
+  .ph-wave--premium .ph-wave__bar {
+    animation: none !important;
+  }
+
+  .hero-phone__huda-avatar::before,
+  .hero-phone__huda-avatar::after {
+    opacity: 0;
+  }
+
+  .huda-progress::after {
+    animation: none;
+    transform: translateX(0);
+  }
 }
 
 /* Individual organic waveform animations */
@@ -772,6 +904,60 @@ html[lang='ar'] .hero__headline {
   background: var(--pure-white) !important;
   border: 1px solid rgba(17, 23, 20, 0.06) !important;
   box-shadow: 0 2px 6px rgba(17, 23, 20, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Periodic soft sheen — the context cards feel live-updating */
+.ph-card--guide-item::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -60%;
+  inline-size: 45%;
+  background: linear-gradient(100deg, transparent, rgba(0, 166, 126, 0.1), transparent);
+  transform: skewX(-18deg);
+  animation: guide-sheen 6.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-phone__guidance-cards .ph-card--guide-item:nth-child(2)::after {
+  animation-delay: 3.25s;
+}
+
+@keyframes guide-sheen {
+  0%,
+  72% {
+    inset-inline-start: -60%;
+  }
+  92%,
+  100% {
+    inset-inline-start: 120%;
+  }
+}
+
+/* Heat/crowd icons breathe softly */
+.ph-card--guide-item .guide-icon-box--warn svg {
+  animation: guide-icon-breathe 3.2s ease-in-out infinite;
+}
+
+@keyframes guide-icon-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-card--guide-item::after,
+  .ph-card--guide-item .guide-icon-box--warn svg {
+    animation: none;
+  }
 }
 
 .guide-icon-box {
